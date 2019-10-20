@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Loading annotated classes/beans -->
+	<context:component-scan
+		base-package="com.lti.service,com.lti.dao,com.lti.controller,com.lti.model" />
+
+	<!-- ++++++++++++++DataSource configuration++++++++++++++ Connection Pooling+++++ -->
+	<bean id="oracleDS" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@192.168.100.240:1521:XE" />
+		<property name="username" value="OnlineExamSystem" />
+		<property name="password" value="OnlineExam@123" />
+	</bean>
+<!-- ++++++++++++++++Spring ORM/JPA Configuration+++++++++++++++++++++++ -->
+	<!-- this bean will create the EntityManagerFactory object for us when using 
+		JPA. Also there is no need of META-INF/persistence.xml file since all the 
+		ORM settings can be done within this bean definition itself -->
+	<bean id="myEmf"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="oracleDS" /> <!-- Database settings -->
+		<property name="packagesToScan" value="com.lti.model" /> <!-- @Entity class location -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+<!-- 				<prop key="hibernate.hbm2ddl.auto">update</prop> -->
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="myEmf" />
+	</bean>
+	
+	<tx:annotation-driven />
+</beans>
