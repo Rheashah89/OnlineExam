@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lti.model.User;
 import com.lti.service.LoginService;
+import com.lti.service.LoginServiceInterface;
 
 
 @Controller
 public class LoginController {
 	@Autowired
-	LoginService loginService;
+	LoginServiceInterface loginServiceInterface;
 	
 	@RequestMapping(path="/login.lti",method=RequestMethod.POST) 
 	
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password  , Map model){
 		
-		User user = loginService.login(email);
+		User user = loginServiceInterface.login(email);
 		String admin="A";
 		if(email.equals(user.getUserEmail()) && password.equals(user.getUserPassword())){
 			

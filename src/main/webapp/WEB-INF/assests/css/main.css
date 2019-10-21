@@ -1,0 +1,451 @@
+body{
+  background:#edd1ff;
+}
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  .card:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {
+      margin: 0 -5px;
+      
+ }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background:white;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    width: auto;
+
+  }
+
+  .subject{
+    width: auto;
+    margin:20px 0px 0px 200px;
+  }
+
+  .profilecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color:white;
+    width: 30%;
+    margin: auto ;  
+    margin-top: 30px;
+    border-radius: 50px;
+
+  }
+
+  button {
+    width: 150px;
+    height: 50px;
+    border:none;
+color: white;
+    border:solid 2px #56356B;
+    border-radius: 5px;
+  background: #56356B;
+   cursor: pointer;
+    border-radius: 10px;
+
+}
+/* 
+button:hover {
+    background:#56356B;
+    color:white; 
+}
+ 
+button {
+    background-color:#56356B; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+   
+    }
+    */
+  button:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+     color: white;
+    }
+
+
+.topnav {
+overflow: hidden;
+background-color: #333;
+opacity: 0.8;
+}
+
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.topnav a:hover {
+background-color: #56356B;
+color: black;
+}
+
+.topnav a.active {
+background-color: #56356B;
+color: white;
+}
+
+
+.innerdiv{
+    margin-bottom: 25px;
+}
+
+.form {
+    margin-top: 5%;
+    border: 2px solid rgb(7, 70, 122);
+    width: 40%;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color:  rgb(153, 153, 153);
+    margin-left:25%;
+  }
+
+  input[type=text], select {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  body{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.loginbox{
+  opacity: 0.8;
+    border-radius: 20px;
+    background: #000;
+    color: #fff;
+    margin-top:28%;
+    left: 50%;
+    width: 30%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.scroll{
+  height: 350px;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  }
+
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;  
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginbox input[type="text"], input[type="password"],input[type="date"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+  
+  .loginbox input[type="text"]:focus{
+    border-bottom: 1px solid  rgb(150, 29, 224);;
+    
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+
+  }
+  .loginbox input[type="password"]:focus{
+    border-bottom: 1px solid rgb(150, 29, 224);
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.2);;
+    margin-bottom: 25px;
+
+  }
+
+
+
+
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background:#56356B;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px
+   
+
+}
+
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background:rgb(189, 107, 240);
+    color: #000;
+    
+}
+
+.loginbox a{
+  padding-top: 20px;
+  padding-bottom: 10%;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+
+.register{
+  float: right;
+
+}
+
+#questionbar{
+  margin-left: 20%;
+  margin-top: 20px;
+
+}
+
+.exam{
+  margin-top: 40px;
+ font-weight:normal ;
+ 
+}
+
+.exam .card{
+width: auto;
+}
+
+#timer{
+  margin-top: 20px;
+
+
+}
+
+
+
+  #questionbar button{
+  
+  margin-left: 10px;
+  color: #f2f2f2;
+  padding: 10px;
+  background: #56356B;
+  border-radius: 5px;
+  display:inline;
+  width: auto;
+
+}
+
+.card h3,h4{
+margin-right: 90%;  
+}
+
+ .radio {
+  margin-right: 90%;
+  
+}
+
+
+.exam .card{
+  width: 60%;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 30px;
+  color: #56356B;
+background:white;
+
+}
+.card #nextquestion{
+    background: #56356B;
+    margin-left: 65%;
+ 
+}
+ #submitexam{
+   margin-top: 30px;
+  margin-left: 45%;
+background: #56356B;
+
+}
+
+.exam button{
+  border-radius: 50px;
+}
+
+
+.outterdiv .card{
+width: auto;
+margin: 10px 50px 0px 50px;
+}
+
+.profilecard .profiletable{
+  margin: auto;
+  padding: 10px;
+  border-collapse: collapse;
+}
+.profilecard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+.profiletable td{
+  text-align: left;
+}
+.profiletable .fields{
+  font-weight: bold;
+}
+
+.profiletable tr{
+  margin-top: 20px;
+}
+
+.instruction{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background:white;
+    border-radius: 20px;
+    width: 40% ;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+.instruction span{
+  float: left;
+}
+.instruction button{
+  margin-top: 20px;
+}
+
+td {
+ 
+  padding: 20px;
+  text-align: left;
+  background-color: rgb(218, 218, 218);
+background: transparent;
+  margin: auto ;  
+  margin-top: 20px;
+}
+
+tr:hover{
+  background-color: rgb(218, 218, 218);
+  border-radius: 20px ;
+}
+
+/*
+
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 25px;
+
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.loginbox input[type="text"], input[type="password"]:in-range{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-bottom: 25px;
+}
+
+  
+  .loginbox input[type="text"], input[type="password"]:focus{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 25px;
+  
+  } 
+
+
+
+    */

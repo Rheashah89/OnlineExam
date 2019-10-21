@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-public class AddQuestions implements AddQuestionsInterface{
+public class AddQuestionsService implements AddQuestionsServiceInterface{
 
 	public static final String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\Rhea\\Desktop\\RHEA\\OnlineExamSystem\\ques.xlsx";
 	@Override
