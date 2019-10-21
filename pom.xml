@@ -14,6 +14,8 @@
 		<hibernate.version>5.4.3.Final</hibernate.version>
 		<oracle.version>12.2.0.1</oracle.version>
 		<junit.version>4.10</junit.version>
+		<poi.version>3.9</poi.version>
+		<poi-ooxml.version>3.17</poi-ooxml.version>
 	</properties>
 
 	<dependencies>
@@ -53,7 +55,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- Oracle -->
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -79,6 +81,16 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-
+		<!-- Read EXCEL Files  -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi-ooxml.version}</version>
+		</dependency>
 	</dependencies>
 </project>
