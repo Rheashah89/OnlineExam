@@ -15,20 +15,20 @@ import com.lti.dao.QuestionDao;
 import com.lti.model.Option;
 import com.lti.model.Question;
 import com.lti.model.Subject;
-import com.lti.service.AddQuestionsServiceInterface;
+import com.lti.service.AddQuestionsService;
 
 @Controller
 public class AddQuestionsController {
 
 	@Autowired
-	AddQuestionsServiceInterface addQuestionsServiceInterface;
+	AddQuestionsService addQuestionsService;
 	
 	@Autowired
 	QuestionDao questionDao;
 
 	@RequestMapping(path = "/addQuestionsWithFile.lti", method = RequestMethod.POST)
 	public void addQuestionsWithFile() {
-		LinkedHashMap<Integer, ArrayList<ArrayList<String>>> data = addQuestionsServiceInterface.addQuestionsUsingFile();
+		LinkedHashMap<Integer, ArrayList<ArrayList<String>>> data = addQuestionsService.addQuestionsUsingFile();
 		
 		for (Map.Entry<Integer, ArrayList<ArrayList<String>>> entry : data.entrySet()) {
 			//System.out.println("Key = " + entry.getKey());
@@ -52,6 +52,7 @@ public class AddQuestionsController {
 						options.add(option);
 					}
 					question.setOptions(options);
+					question.setQuestionLevel(Integer.parseInt((String) temp[10]));
 					questionDao.save(question);			
 			}
 		}

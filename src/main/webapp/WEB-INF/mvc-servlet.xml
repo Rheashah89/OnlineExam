@@ -10,8 +10,7 @@
         https://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- Loading annotated classes/beans -->
-	<context:component-scan
-		base-package="com.lti.service,com.lti.dao,com.lti.controller,com.lti.model" />
+	<context:component-scan base-package="com.lti.service,com.lti.dao,com.lti.controller,com.lti.model"/>
 
 	<!-- ++++++++++++++DataSource configuration++++++++++++++ Connection Pooling+++++ -->
 	<bean id="oracleDS" class="org.apache.commons.dbcp2.BasicDataSource"
@@ -44,5 +43,5 @@
 		<property name="entityManagerFactory" ref="myEmf" />
 	</bean>
 	
-	<tx:annotation-driven />
+	<tx:annotation-driven/>
 </beans>

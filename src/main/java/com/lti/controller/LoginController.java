@@ -27,10 +27,10 @@ public class LoginController {
 		if(email.equals(user.getUserEmail()) && password.equals(user.getUserPassword())){
 			
 			if(admin.equals(user.getUserRole())){
-				return"adminhome.jsp";
+				return"admin.html";
 			}
 			else {
-				return"studenthome.jsp";
+				return"welcome.jsp";
 			}
 			
 		}

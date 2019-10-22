@@ -6,8 +6,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+
+
 	<properties>
-		<spring.version>5.2.0.RELEASE</spring.version>
+		<spring.version>5.1.5.RELEASE</spring.version>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<java.version>1.8</java.version>
@@ -81,7 +84,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		<!-- Read EXCEL Files  -->
+		<!-- Read EXCEL Files -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -92,5 +95,12 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>${poi-ooxml.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>3.17</version>
+		</dependency>
+
 	</dependencies>
 </project>

@@ -10,10 +10,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-
+import org.springframework.stereotype.Service;
+@Service
 public class AddQuestionsService implements AddQuestionsServiceInterface{
 
-	public static final String SAMPLE_XLSX_FILE_PATH = "C:\\Users\\Rhea\\Desktop\\RHEA\\OnlineExamSystem\\ques.xlsx";
+	
+	
+	public static final String SAMPLE_XLSX_FILE_PATH = "D:\\INPUT\\ques.xlsx";
 	@Override
 	public LinkedHashMap<Integer, ArrayList<ArrayList<String>>> addQuestionsUsingFile() {
 		Workbook workbook;
