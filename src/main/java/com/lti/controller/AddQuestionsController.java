@@ -26,8 +26,8 @@ public class AddQuestionsController {
 	@Autowired
 	QuestionDao questionDao;
 
-	@RequestMapping(path = "/addQuestionsWithFile.lti", method = RequestMethod.POST)
-	public void addQuestionsWithFile() {
+	@RequestMapping(path = "/addQuestionsWithFile.lti", method = RequestMethod.GET)
+	public String addQuestionsWithFile() {
 		LinkedHashMap<Integer, ArrayList<ArrayList<String>>> data = addQuestionsService.addQuestionsUsingFile();
 		
 		for (Map.Entry<Integer, ArrayList<ArrayList<String>>> entry : data.entrySet()) {
@@ -44,18 +44,19 @@ public class AddQuestionsController {
 					question.setSubject(subject);
 					
 					Set<Option> options = new HashSet<Option>();
-					for (int i = 0; i < temp.length; i=i+2) {
+					for (int i = 2; i <=8; i=i+2) {
 						Option option = new Option();
 						option.setOption((String)temp[i]);
-						option.setCorrcetOption((Character)temp[i+1]);
+						option.setCorrcetOption((String)temp[i+1]);
 						option.setQuestion(question);
 						options.add(option);
 					}
 					question.setOptions(options);
 					question.setQuestionLevel(Integer.parseInt((String) temp[10]));
-					questionDao.save(question);			
+					questionDao.save(question);
 			}
 		}
+		return "welcome.jsp";
 		 
 	}
 }

@@ -24,8 +24,7 @@
 	<!-- this bean will create the EntityManagerFactory object for us when using 
 		JPA. Also there is no need of META-INF/persistence.xml file since all the 
 		ORM settings can be done within this bean definition itself -->
-	<bean id="myEmf"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="oracleDS" /> <!-- Database settings -->
 		<property name="packagesToScan" value="com.lti.model" /> <!-- @Entity class location -->
 		<property name="jpaVendorAdapter">

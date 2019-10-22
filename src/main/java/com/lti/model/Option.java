@@ -28,7 +28,7 @@ public class Option {
 	private String option;
 	
 	@Column(name="CORRECT_OPTION") // y or n
-	private char correctOption;
+	private String correctOption;
 
 	public int getOptionId() {
 		return optionId;
@@ -54,11 +54,11 @@ public class Option {
 		this.option = option;
 	}
 
-	public char getCorrcetOption() {
+	public String getCorrcetOption() {
 		return correctOption;
 	}
 
-	public void setCorrcetOption(char correctOption) {
+	public void setCorrcetOption(String correctOption) {
 		this.correctOption = correctOption;
 	}
 	
