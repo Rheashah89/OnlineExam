@@ -44,12 +44,16 @@ public class AddQuestionsController {
 					question.setSubject(subject);
 					
 					Set<Option> options = new HashSet<Option>();
-					for (int i = 2; i <=8; i=i+2) {
+					for (int i = 2; i <=9; i=i+2) {
 						Option option = new Option();
+						String str = (String)temp[i];
+						if(str.equals(""))
+							continue;
 						option.setOption((String)temp[i]);
 						option.setCorrcetOption((String)temp[i+1]);
 						option.setQuestion(question);
 						options.add(option);
+						
 					}
 					question.setOptions(options);
 					question.setQuestionLevel(Integer.parseInt((String) temp[10]));
