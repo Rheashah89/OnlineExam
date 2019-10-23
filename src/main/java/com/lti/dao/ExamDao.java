@@ -1,6 +1,5 @@
 package com.lti.dao;
 
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,21 +7,21 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.model.Question;
+import com.lti.model.Exam;
 
 @Repository
-public class QuestionDao extends GenericDao {
+public class ExamDao {
 
 	@PersistenceContext
 	public EntityManager entityManager;
 	
-	public List<Question> fetchQuestions(int subjectId){
+	public Object fetchExam(int userId){
 		
-		String ql = "select q from Question q where q.subject=:tp";
+		String ql = "select e from Exam e where e.user=:tp";
 		Query q = entityManager.createQuery(ql);
-		q.setParameter("tp",subjectId);
+		q.setParameter("tp",userId);
 		
-		return q.getResultList();
+		return q.getSingleResult();
 		
 	}
 }
