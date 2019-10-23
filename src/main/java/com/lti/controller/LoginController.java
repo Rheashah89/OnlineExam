@@ -26,9 +26,11 @@ public class LoginController {
 		
 		User user = loginServiceInterface.login(email);
 		String admin="A";
+		
 		model.put("user", user);
 		if(email.equals(user.getUserEmail()) && password.equals(user.getUserPassword())){
 			
+		
 			if(admin.equals(user.getUserRole())){
 				return "admin.html";
 			}

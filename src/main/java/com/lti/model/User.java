@@ -43,7 +43,7 @@ public class User {
 	private String userState;
 	
 	@Column(name="USER_ROLE")
-	private char userRole;
+	private String userRole;
 	
 	@Column(name="USER_DEGREE")
 	private String userDegree;
@@ -99,9 +99,7 @@ public class User {
 	public void setUserState(String userState) {
 		this.userState = userState;
 	}
-	public char getUserRole() {
-		return userRole;
-	}
+	
 	public Set<Exam> getExams() {
 		return exams;
 	}
@@ -114,9 +112,14 @@ public class User {
 	public void setUserDegree(String userDegree) {
 		this.userDegree = userDegree;
 	}
-	public void setUserRole(char userRole) {
+	public String getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
+	
+	
 	
 	
 }

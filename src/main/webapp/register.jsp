@@ -27,7 +27,7 @@
                         <input type="text" name="userCity" placeholder="Your City">
                         <p>Degree</p>
                         <input type="text" name="userDegree" placeholder="Your Degree">
-                        <input type="hidden" name="userRole" value="s">
+                        <input type="hidden" name="userRole" value="S">
                 </div>
                 <br><br>
                 <div style="width: 50%; margin: 0 auto;">
