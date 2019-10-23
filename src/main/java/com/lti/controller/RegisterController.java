@@ -23,7 +23,7 @@ public class RegisterController {
 		registerServiceInterface.register(user);
 		model.put("message", "Registered Successfully!");
 		
-		return "confirmation.jsp";
-	} 
+		return "login.jsp";
+	}
 	
 }

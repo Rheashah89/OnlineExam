@@ -53,10 +53,13 @@ public class AddQuestionsService implements AddQuestionsServiceInterface{
 						if (data.containsKey(subject)) {
 							ArrayList<ArrayList<String>> listOfQuestions = data.get(subject);
 							listOfQuestions.add(listOfQuestionsAndOptions);
+							data.replace(subject, listOfQuestions);
+							listOfQuestionsAndOptions = new ArrayList<String>();
 						} else {
 							ArrayList<ArrayList<String>> listOfQuestions = new ArrayList<ArrayList<String>>();
 							listOfQuestions.add(listOfQuestionsAndOptions);
 							data.put(subject, listOfQuestions);
+							listOfQuestionsAndOptions = new ArrayList<String>();
 						}
 					}
 				}
