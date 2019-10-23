@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Search Students</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <!--  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>-->
 </head>
 <body>
-    <div class="form">
-        <div>Technology: <input type="text"></div>
-        <div>State: <input type="text"></div>
-        <div>City: <input type="text"></div>
-        <div>Levels: <input type="text"></div>
-        <div>Marks: <input type="text"></div>
-        <div><a href="student_info.jsp" > <button>Search Students</button></a>
+    <div class="form" action="search.lti" method="post">
+        <div>Technology: <input type="text" name="technology"></div>
+        <div>State: <input type="text" name="state"></div>
+        <div>City: <input type="text" name="city"></div>
+        <div>Levels: <input type="text" name="level"></div>
+        
+        <div> <input type="submit" value="Search Students">
         
     </div>
 </body>
