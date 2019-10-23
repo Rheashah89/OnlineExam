@@ -1,4 +1,4 @@
-package com.lti.controller;
+ package com.lti.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,11 @@ public class AdminSearchController {
 		@Autowired
 		public AdminSearchService adminSearchService;
 		
-		@RequestMapping(path = "/search.lti", method = RequestMethod.POST)
+		@RequestMapping(path ="/search.lti", method = RequestMethod.POST)
 		public String search(@RequestParam("state") String state,Map model ){
 			
 			
-			List<User> users =new ArrayList<>();
-			users = adminSearchService.search(state);
+			List<User> users =adminSearchService.search(state);
 			
 			model.put("users", users);
 			

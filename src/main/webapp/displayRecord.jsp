@@ -1,5 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored = "true|false" %>
+
 <%@page import="com.lti.model.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -14,17 +14,21 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>#</th>
+				
 				<th>User Name</th>
-				<th>Degree</th>
-				<th>Email</th>
+				<th>Date Of Birth</th>
 				<th>Mobile number</th>
+				<th>Email</th>
+				<th>Degree</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="user" items="${users}">
 			<tr>
 				<td>${user.userName}</td>
+				<td>${user.userDateOfBirth}</td>
+				<td>${user.userMobile}</td>
+				<td>${user.userEmail}</td>
 				<td>${user.userDegree}</td>
 			</tr>
 			</c:forEach>
