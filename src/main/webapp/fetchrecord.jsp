@@ -19,12 +19,12 @@
             <option id="op2" value="state">State</option>
             <option id="op3" value="city">city</option>
         </select>
-    </form>
+    </form action="search.lti" method="post">
     <div  id="technology" style="width:100px;height: 100px;">
         <select class="innerselect" name="Technology">
-      
+      <%! int i=0; %>
         <c:forEach var="subject" items="${subjects}">
-            <option id="opt" value="${subject.id}">${subject.name}</option>
+            <option id="opt<% i++; %>>" value="${subject.subjectId}">${subject.subjectName}</option>
            </c:forEach>
         </select>
     </div>
@@ -44,11 +44,12 @@
         </select>
     </div>
     <div > <input type="submit" value="Search Students"> </div>
+    </form>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $("#technology").hide();
+        $("#technology").show();
         $("#state").hide();
         $("#city").hide();
 

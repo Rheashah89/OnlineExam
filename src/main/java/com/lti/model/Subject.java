@@ -29,7 +29,7 @@ public class Subject {
 	@Column(name="NO_OF_QUESTIONS")
 	private int noOfQuestions;
 	
-	@OneToMany(mappedBy="subject",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="subject",cascade = CascadeType.ALL)
 	private Set<Question> questions;
 	
 	@OneToMany(mappedBy="subject",cascade = CascadeType.ALL)
