@@ -102,14 +102,20 @@ public class User {
 	public char getUserRole() {
 		return userRole;
 	}
-	public void setUserRole(char userRole) {
-		this.userRole = userRole;
+	public Set<Exam> getExams() {
+		return exams;
+	}
+	public void setExams(Set<Exam> exams) {
+		this.exams = exams;
 	}
 	public String getUserDegree() {
 		return userDegree;
 	}
 	public void setUserDegree(String userDegree) {
 		this.userDegree = userDegree;
+	}
+	public void setUserRole(char userRole) {
+		this.userRole = userRole;
 	}
 	
 	

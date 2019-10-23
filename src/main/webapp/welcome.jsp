@@ -13,7 +13,7 @@
 </head>
 <body >
     <div class="topnav">
-        <a class="active" href="index.html" action = "index.html">Home</a>
+        <a class="active" href="welcome.jsp" action = "welcome.jsp">Home</a>
         <a href="about_us.jsp" action = "about_us.jsp">About Us</a>
         <a style="float:right" href="profile.jsp" action = "profile.jsp">Profile</a>
         <a style="float:right" href="index.html" action = "index.html">Logout</a>
@@ -21,6 +21,7 @@
     <div class="outterdiv">
         <div class="card">
         <div>
+        <h1>Hello ${user.userName}! </h1>
          <div style="float: left;"><a href="report.jsp"><button>Report</button></a></div>
         <div > <a href="select_subject.jsp"><button>New Exam</button></a></div>
     </div>

@@ -9,22 +9,25 @@
         <div class="loginbox">
                 <img src="./assets/images/LoginIcon.png" class="avatar">
                 <h1>Please Register</h1>
-                <form name="RegiForm" method="POST" action="login.jsp">
+                <form name="RegiForm" method="POST" action="register.lti">
                 <div class="scroll">
                         <p>Full Name</p>
-                        <input type="text" name="FullName" placeholder="Your Name">
+                        <input type="text" name="userName" placeholder="Your Name">
                         <p>Email</p>
-                        <input type="text" name="Email" placeholder="Your Email">
+                        <input type="text" name="userEmail" placeholder="Your Email">
+                        <p>Password</p>
+                        <input type="password" name="userPassword" placeholder="Your Password">
                         <p>Mobile</p>
-                        <input type="text" name="Mobile" placeholder="Your Mobile No.">
-                        <p>State</p>
-                        <input type="text" name="State" placeholder="Your State">
+                        <input type="text" name="userMobile" placeholder="Your Mobile No.">
                         <p>Date of birth</p>
-                        <input type="date" name="DateOfBirth" placeholder="Your Date of Birth">
+                        <input type="date" name="userDateOfBirth" placeholder="Your Date of Birth">
+                        <p>State</p>
+                        <input type="text" name="userState" placeholder="Your State">
                         <p>City</p>
-                        <input type="text" name="City" placeholder="Your City">
+                        <input type="text" name="userCity" placeholder="Your City">
                         <p>Degree</p>
-                        <input type="text" name="Degree" placeholder="Your Degree">
+                        <input type="text" name="userDegree" placeholder="Your Degree">
+                        <input type="hidden" name="userRole" value="s">
                 </div>
                 <br><br>
                 <div style="width: 50%; margin: 0 auto;">
@@ -38,13 +41,14 @@
 
 function validation(){
           
-        var fullname = document.forms["RegiForm"]["FullName"];    
-        var email = document.forms["RegiForm"]["Email"];
-        var mobile = document.forms["RegiForm"]["Mobile"];
-        var state = document.forms["RegiForm"]["State"];
-        var dateofbirth = document.forms["RegiForm"]["DateOfBirth"];
-        var city = document.forms["RegiForm"]["City"];
-        var degree = document.forms["RegiForm"]["Degree"];
+        var fullname = document.forms["RegiForm"]["userName"];    
+        var email = document.forms["RegiForm"]["userEmail"];
+        var mobile = document.forms["RegiForm"]["userMobile"];
+        var state = document.forms["RegiForm"]["userState"];
+        var dateofbirth = document.forms["RegiForm"]["userDateOfBirth"];
+        var city = document.forms["RegiForm"]["userCity"];
+        var degree = document.forms["RegiForm"]["userDegree"];
+        var password = document.forms["RegiForm"]["userPassword"];
 
         if (fullname.value == "")                                   
     { 
@@ -83,6 +87,12 @@ function validation(){
         return false; 
     }   
 
+    if (password.value == "")                                   
+    { 
+        alert("Blank Password not allowed"); 
+       // state.focus(); 
+        return false; 
+    } 
     if (dateofbirth.value == "")                                   
     { 
         alert("Blank Date of Birth not allowed"); 

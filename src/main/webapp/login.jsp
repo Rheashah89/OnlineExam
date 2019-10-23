@@ -9,9 +9,10 @@
     <div class="loginbox">
         <img src="./assets/images/LoginIcon.png" class="avatar">
         <h1>Please Login</h1>
-        <form name="RegForm" method="POST" action="welcome.jsp" onsubmit="return validation()">
-            <p>Email: <input type="text"  name="Email" id="myEmail" placeholder="Your Email"> </p><br> 
-            <p>Password: <input type="text"  name="Password" placeholder="Your Password"> </p><br> 
+        <form name="RegForm" method="POST" action="login.lti" onsubmit="return validation()">
+        	<p>${message}</p>
+            <p>Email: <input type="text"  name="email" id="myEmail" placeholder="Your Email"> </p><br> 
+            <p>Password: <input type="password"  name="password" placeholder="Your Password"> </p><br> 
             <input type="submit" name="btn" value="Login">
         
             <div><a href ="forget_password.jsp">Forgot Password ?</a> </div>  
