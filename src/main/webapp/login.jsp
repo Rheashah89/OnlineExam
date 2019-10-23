@@ -1,48 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<title>Login Page</title>
 </head>
-<body style=" background:#edd1ff;">
+<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+<body>
     <div class="loginbox">
-        <img src="LoginIcon.png" class="avatar">
+        <img src="./assets/images/LoginIcon.png" class="avatar">
         <h1>Please Login</h1>
-        <form action="login.lti" name="loginForm" method="POST">
-            <p>E-mail: <input type="text"  name="email">  </p><br> 
-            <p>Password: <input type="password"  name="password"> </p><br> 
-            <input type="submit" value="Login" onclick="validate()">
-            <div class="container">
-            <span class="register"><a href ="register.html">Forget Password ?</a> </span>  
-            <span class="foregtpassword"><a href ="register.html">Register</a> </span>  
-           
-            </div>
+        <form name="RegForm" method="POST" action="welcome.jsp" onsubmit="return validation()">
+            <p>Email: <input type="text"  name="Email" id="myEmail" placeholder="Your Email"> </p><br> 
+            <p>Password: <input type="text"  name="Password" placeholder="Your Password"> </p><br> 
+            <input type="submit" name="btn" value="Login">
+        
+            <div><a href ="forget_password.jsp">Forgot Password ?</a> </div>  
+            <div><a href ="register.jsp">Register</a> </div>  
+
+
+            <div id = "mydiv"></div>
+
         </form>
     </div>
-     
+
     <script type="text/javascript">
-       
-        function validate(){
-          
-         var email = document.forms["loginForm"]["Email"];    
-         var password = document.forms["loginForm"]["Password"];  
-         if (email.value == "")                                   
-     { 
-         alert("Blank Username not allowed"); 
-         email.focus(); 
-         return false; 
-     }   
-     
-    if (password.value == "")                        
-     { 
-         alert("Blank Password not allowed"); 
-         password.focus(); 
-         return false; 
-     } 
-    return true;
+
+function validation() {
+        var email = document.forms["RegForm"]["Email"];    
+        var password = document.forms["RegForm"]["Password"]; 
+
+         if (email.value == "") { 
+        alert("Blank email not allowed");
+        return false; 
+        }   
+    
+    if (password.value == "") { 
+        alert("Blank Password not allowed");  
+        return false; 
+        } 
+
+    var email = document.forms["RegForm"]["Email"].value;   
+    var reg =  /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+    
+    if (!reg.test(email)){
+    alert("Enter Valid Email");
+     return false;
     }
+} 
     </script>
 </body>
 </html>
