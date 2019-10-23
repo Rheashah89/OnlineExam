@@ -12,8 +12,12 @@ public class ExamService {
 	@Autowired
 	private ExamDao examDao;
 	
-	public Exam fetchExam(int userId){
-		return (Exam) examDao.fetchExam(userId);
+	public Exam fetchExam(int userId, int subjectId){
+		return (Exam) examDao.fetchExam(userId,subjectId);
 			
+	}
+
+	public Exam save(Exam exam) {
+		return (Exam)examDao.save(exam);
 	}
 }

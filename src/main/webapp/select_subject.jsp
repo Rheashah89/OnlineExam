@@ -22,21 +22,21 @@
                 <div class="column">
                   <div class="card">
                     <h3>JAVA</h3>
-                    <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                    <div><a href="selectSubject.lti?subjectId=1"><button >Start</button></a></div>
                   </div>
                 </div>
               
                 <div class="column">
                   <div class="card">
                     <h3>SQL</h3>
-                    <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                    <div><a href="selectSubject.lti?subjectId=2"><button>Start</button></a></div>
                   </div>
                 </div>
                 
                 <div class="column">
                   <div class="card">
                     <h3>Python</h3>
-                    <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                    <div><a href="selectSubject.lti?subjectId=3"><button>Start</button></a></div>
                   </div>
                 </div>
                 
@@ -46,20 +46,20 @@
                     <div class="column">
                             <div class="card">
                             <h3>C/C++</h3>
-                            <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                            <div><a href="selectSubject.lti?subjectId=4"><button>Start</button></a></div>
                             </div>
                     </div>
                     <div class="column">
                             <div class="card">
                               <h3>PHP</h3>
-                              <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                              <div><a href="selectSubject.lti?subjectId=5"><button>Start</button></a></div>
                             </div>
                     </div>
                     
                     <div class="column">
                         <div class="card">
                             <h3>C#/.net</h3>
-                            <div><a href="start_exam.jsp"><button>Start</button></a></div>
+                            <div><a href="selectSubject.lti?subjectId=6"><button>Start</button></a></div>
                         </div>
                     </div>
               </div>

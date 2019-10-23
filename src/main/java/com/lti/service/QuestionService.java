@@ -14,7 +14,7 @@ public class QuestionService {
 	@Autowired
 	private QuestionDao questionDao;
 	
-	public List<Question> fetchQuestions(int subjectId){
-		return questionDao.fetchQuestions(subjectId);
+	public List<Question> fetchQuestions(int subjectId,int currentLevel){
+		return questionDao.fetchQuestions(subjectId,currentLevel);
 	}
 }

@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,11 +25,14 @@
         <li><span> Students must not stop the session and then return to it. </span></li>
         <li><span> This is especially important in the online environment where the system will "time-out" and not allow the student or you to reenter the exam site.</span></li>
         <li><span> What to do if your online exam is interrupted</span></li>
-        <li><span> If your online exam is interrupted, click the “Back” button on your web browser to see if you can return to the exam.  </span></li>
+        <li><span> If your online exam is interrupted, click the "Back" button on your web browser to see if you can return to the exam.  </span></li>
         <li><span> If not, follow the instructions below to resume taking the exam.</span></li>
       
         </ul>
-        <div><a href="exam.jsp" action="startExam.lti"><button>Start Exam</button></a></div>
+        <div>
+        <form action="startExam.lti">
+        <button type="submit">Start Exam</button></div>
+        </form>
     </div>
 </body>
 </html>

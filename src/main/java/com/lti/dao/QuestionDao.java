@@ -16,11 +16,12 @@ public class QuestionDao extends GenericDao {
 	@PersistenceContext
 	public EntityManager entityManager;
 	
-	public List<Question> fetchQuestions(int subjectId){
+	public List<Question> fetchQuestions(int subjectId,int currentLevel){
 		
-		String ql = "select q from Question q where q.subject=:tp";
+		String ql = "select q from Question q where q.subject.subjectId=:subId and q.questionLevel=:level";
 		Query q = entityManager.createQuery(ql);
-		q.setParameter("tp",subjectId);
+		q.setParameter("subId",subjectId);
+		q.setParameter("level",currentLevel);
 		
 		return q.getResultList();
 		
