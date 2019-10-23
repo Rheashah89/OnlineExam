@@ -22,9 +22,9 @@ public class AdminSearchController {
 		public AdminSearchService adminSearchService;
 		
 		@RequestMapping(path ="/search.lti", method = RequestMethod.POST)
-		public String search(@RequestParam("state") String state,Map model ){
+		public String search(@RequestParam("") String state,Map model ){
 			
-			
+		
 			List<User> users =adminSearchService.search(state);
 			
 			model.put("users", users);

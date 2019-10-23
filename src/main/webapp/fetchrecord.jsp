@@ -19,7 +19,6 @@
             <option id="op2" value="state">State</option>
             <option id="op3" value="city">city</option>
         </select>
-    </form action="search.lti" method="post">
     <div  id="technology" style="width:100px;height: 100px;">
         <select class="innerselect" name="Technology">
       <%! int i=0; %>
@@ -30,17 +29,17 @@
     </div>
     <div id="state" style="width:100px;height: 100px;">
         <select class="innerselect"  name="State">
-            <option id="opt1" value="1">Maharashtra</option>
-            <option id="opt2" value="2">Rajasthan</option>
-            <option id="opt3" value="3">UP Bihar Lutne</option>
+            <option id="opt1" value="Maharashtra">Maharashtra</option>
+            <option id="opt2" value="Rajasthan">Rajasthan</option>
+            <option id="opt3" value="Bihar">Bihar</option>
         </select>
     </div>
 
     <div id="city" style="width:100px;height: 100px;">
         <select  class="innerselect" name="City">
-            <option id="opt1" value="1">Mumbai</option>
-            <option id="opt2" value="2">Pune</option>
-            <option id="opt3" value="3">Kanpur</option>
+            <option id="opt1" value="Mumbai">Mumbai</option>
+            <option id="opt2" value="Pune">Pune</option>
+            <option id="opt3" value="Kanpur">Kanpur</option>
         </select>
     </div>
     <div > <input type="submit" value="Search Students"> </div>

@@ -23,15 +23,7 @@
                         <td><label>Course Name</label></td>
                         <td colspan="3"> 
                            <select name="coursename" class="text">
-     <% 
-         ArrayList list=pDAO.getAllCourses();
-         
-         for(int i=0;i<list.size();i=i+2){
-     %>
-     <option value="<%=list.get(i)%>"><%=list.get(i)%></option>
-         <%
-         }
-         %>
+    
          </select>
                         </td>
                     </tr>
