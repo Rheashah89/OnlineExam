@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
-    <script src="./assets/js/main.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Admin Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="./assets/css/main.css" />
+<script src="./assets/js/main.js"></script>
 </head>
-<body>  
-    
-            <div class="topnav">
-                    <a class="active" href="home.html">Home</a>
-                    <a href="about_us.jsp">About Us</a>
-                    <a style="float:right" href="login.jsp">Logout</a>
-            </div>
-       
-    <div class="admin">
-    <div class="card"> 
-        <div><a href="addquestion.jsp"><button>Add Question</button></a></div>
-        <div><a href="removequestion.jsp"><button>Remove Question</button></a></div>
-        <div><a href="viewreport.jsp"><button>View Reports</button></a></div>
-    </div>
-    </div>
+<body>
+
+	<div class="topnav">
+		<a class="active" href="home.html">Home</a> <a href="about_us.jsp">About
+			Us</a> <a style="float: right" href="login.jsp">Logout</a>
+	</div>
+
+	<div class="admin">
+		<div class="card">
+			<div>
+				<a href="addquestion.jsp"><button>Add Question</button></a>
+			</div>
+			<div>
+				<a href="removequestion.jsp"><button>Remove Question</button></a>
+			</div>
+			<div>
+			<form action="retriveSubject.lti" method="post">
+				<input type="submit" value="View Reports" />
+			</form>
+		</div>
+	</div>
 
 
-    <div class="sidebar" style="background-image: url(sidebar-1.jpg)">
-            <div class="sidebar-background" >
-                <!-- <h2 class="logo-text">
+	<div class="sidebar" style="background-image: url(sidebar-1.jpg)">
+		<div class="sidebar-background">
+			<!-- <h2 class="logo-text">
                     Online Examination System
                 </h2> -->
 
-                <!-- <div class="left-menu">
+			<!-- <div class="left-menu">
                     <a  href="adm-page.jsp?pgprt=0"><h2>Profile</h2></a>
                     <a href="adm-page.jsp?pgprt=2"><h2>Courses</h2></a>
                      <a class="active" href="adm-page.jsp?pgprt=3"><h2>Questions</h2></a>
                     <a href="adm-page.jsp?pgprt=1"><h2>Accounts</h2></a>
                 </div> -->
-            </div>
-        </div>
+		</div>
+	</div>
 
 </body>
 </html>

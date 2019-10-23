@@ -411,3 +411,25 @@ tr:hover{
 
 .viewreport .reporttable
 {}
+
+.adminreportcard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background: white;
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 25%;
+    border-radius:10px;
+     
+}
+
+.adminreportcard:hover{
+    box-shadow:  0 8px 16px 0 rgba(0, 0, 0, 0.2)
+}
+
+.adminreportcard .innerselect{
+    margin-top: 25px ;
+    margin-left: 25px;
+    width:auto;
+}
