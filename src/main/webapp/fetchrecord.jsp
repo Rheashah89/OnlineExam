@@ -14,29 +14,29 @@
     <form action="search.lti" method="post">
       
         <label for="noOfOptions">Select students based on</label>
-        <select id="noOfOptions">
+        <select id="noOfOptions" name="firstselect">
             <option id="op1" value="technology">Technology</option>
-            <option id="op2" value="state">State</option>
-            <option id="op3" value="city">city</option>
+            <option id="op2" value="userState">State</option>
+            <option id="op3" value="userCity">city</option>
         </select>
     <div  id="technology" style="width:100px;height: 100px;">
-        <select class="innerselect" name="Technology">
+        <select class="innerselect" name="secondselect1">
       <%! int i=0; %>
         <c:forEach var="subject" items="${subjects}">
-            <option id="opt<% i++; %>>" value="${subject.subjectId}">${subject.subjectName}</option>
+            <option id="opt<% i++; %>" value="${subject.subjectId}">${subject.subjectName}</option>
            </c:forEach>
         </select>
-    </div>
-    <div id="state" style="width:100px;height: 100px;">
-        <select class="innerselect"  name="State">
+    </div> 
+    <div id="userState" style="width:100px;height: 100px;">
+        <select class="innerselect"  name="secondselect2">
             <option id="opt1" value="Maharashtra">Maharashtra</option>
             <option id="opt2" value="Rajasthan">Rajasthan</option>
             <option id="opt3" value="Bihar">Bihar</option>
         </select>
     </div>
 
-    <div id="city" style="width:100px;height: 100px;">
-        <select  class="innerselect" name="City">
+    <div id="userCity" style="width:100px;height: 100px;">
+        <select  class="innerselect" name="secondselect3">
             <option id="opt1" value="Mumbai">Mumbai</option>
             <option id="opt2" value="Pune">Pune</option>
             <option id="opt3" value="Kanpur">Kanpur</option>
@@ -49,24 +49,24 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $("#technology").show();
-        $("#state").hide();
-        $("#city").hide();
+        $("#userState").hide();
+        $("#userCity").hide();
 
             $("#noOfOptions").change(function(){
                 if($(this).val()=="technology"){
                     $("#technology").show();
-        $("#state").hide();
-        $("#city").hide();
+        $("#userState").hide();
+        $("#userCity").hide();
                 }
-                else if($(this).val()=="state"){
+                else if($(this).val()=="userState"){
                     $("#technology").hide();
-        $("#state").show();
-        $("#city").hide();
+        $("#userState").show();
+        $("#userCity").hide();
                 }
-                else if($(this).val()=="city"){
+                else if($(this).val()=="userCity"){
                     $("#technology").hide();
-        $("#state").hide();
-        $("#city").show();
+        $("#userState").hide();
+        $("#userCity").show();
                 }
             });
         });

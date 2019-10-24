@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +43,7 @@ public class Exam {
 	@OneToMany(mappedBy="exam",cascade=CascadeType.ALL)
 	private Set<Answer> answers;
 	
-	@OneToOne(mappedBy="exam")
+	@OneToOne(mappedBy="exam",fetch=FetchType.LAZY)
 	private Report report;
 	
 	public int getExamId() {

@@ -17,8 +17,13 @@ public class AdminSearchService {
 	@Autowired
 	public AdminSearchDao adminSearchdao;
 	
-	public List<User> search(String state) {
+	public List<User> search(String firstselect,String secondselect) {
 		
-		return adminSearchdao.searchUsers(state);
+		
+		if(firstselect.equals("technology")){
+			return adminSearchdao.searchUsersByTechnology(firstselect, secondselect);
+		}
+		
+		return adminSearchdao.searchUsers(firstselect,secondselect);
 	}
 }

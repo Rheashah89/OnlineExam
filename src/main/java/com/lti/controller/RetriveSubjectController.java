@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lti.model.Subject;
@@ -22,13 +23,21 @@ public class RetriveSubjectController {
 	public RetriveSubjectService retriveSubjectService;
 	
 	@RequestMapping(path="/retriveSubject.lti",method=RequestMethod.POST) 
-	public String fetchAllSubject(Map model){
+	public String fetchAllSubject(@RequestParam("buttonvalue") String buttonvalue, Map model){
 		
 		List<Subject> subjects =retriveSubjectService.fetchAll();
 		
 		model.put("subjects", subjects);
 		
-		return "fetchrecord.jsp";
+		if(buttonvalue.equals("addquestion")){
+		return "ques_add.jsp";
+		}
+		else if (buttonvalue.equals("viewreports")) {
+			return "fetchrecord.jsp";
+		}
+		
+		
+		return "admin.html";
 	}
 	 
 }

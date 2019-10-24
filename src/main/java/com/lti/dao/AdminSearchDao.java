@@ -1,5 +1,6 @@
 package com.lti.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.Exam;
 import com.lti.model.User;
 
 @Repository
@@ -17,11 +19,33 @@ public class AdminSearchDao {
 	@PersistenceContext
 	public EntityManager entityManager;
 	
-	public List<User> searchUsers(String state){
-		
-		String ql = "select u from User u where u.userState=:tp";
+	
+	
+public List<User> searchUsersByTechnology(String firstselect,String secondselect){
+		int id = Integer.parseInt(secondselect);
+		String ql = "select e from Exam e where e.subject.subjectId=:ss";
 		Query q = entityManager.createQuery(ql);
-		q.setParameter("tp",state);
+		
+		q.setParameter("ss",id);
+		List<Exam> exams=q.getResultList();
+		
+		List<User> users = new ArrayList<User>();
+		for (Exam exam : exams) {
+			
+			users.add(exam.getUser());
+		}
+		return users;
+		
+	}
+	
+	
+	public List<User> searchUsers(String firstselect,String secondselect){
+		//(u.userCity or u.userState)
+		System.out.println(secondselect);
+		String ql = "select u from User u where u."+firstselect+"=:ss";
+		Query q = entityManager.createQuery(ql);
+		//q.setParameter("fs",firstselect);
+		q.setParameter("ss",secondselect);
 		
 		return q.getResultList();
 		

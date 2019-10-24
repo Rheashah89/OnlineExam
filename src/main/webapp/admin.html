@@ -19,14 +19,16 @@
 	<div class="admin">
 		<div class="card">
 			<div>
-				<a href="addquestion.jsp"><button>Add Question</button></a>
+				<form action="retriveSubject.lti" method="post">
+				<input type="submit" name="buttonvalue" value="addquestion" />
+			</form>
 			</div>
 			<div>
 				<a href="removequestion.jsp"><button>Remove Question</button></a>
 			</div>
 			<div>
 			<form action="retriveSubject.lti" method="post">
-				<input type="submit" value="View Reports" />
+				<input type="submit" name="buttonvalue" value="viewreports" />
 			</form>
 		</div>
 	</div>

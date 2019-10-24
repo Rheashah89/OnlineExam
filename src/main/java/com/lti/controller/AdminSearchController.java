@@ -22,10 +22,19 @@ public class AdminSearchController {
 		public AdminSearchService adminSearchService;
 		
 		@RequestMapping(path ="/search.lti", method = RequestMethod.POST)
-		public String search(@RequestParam("") String state,Map model ){
+		public String search(@RequestParam("firstselect") String firstselect,
+				@RequestParam("secondselect1") String secondselect1,
+				@RequestParam("secondselect2") String secondselect2,
+				@RequestParam("secondselect3") String secondselect3,Map model ){
+			String secondselect=null;
+			if(firstselect.equals("technology"))
+				secondselect=secondselect1;
+			else if(firstselect.equals("userState"))
+				secondselect=secondselect2;
+			else if(firstselect.equals("userCity"))
+				secondselect=secondselect3;
 			
-		
-			List<User> users =adminSearchService.search(state);
+			List<User> users =adminSearchService.search(firstselect,secondselect);
 			
 			model.put("users", users);
 			

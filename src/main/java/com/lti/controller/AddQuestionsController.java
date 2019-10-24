@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lti.dao.QuestionDao;
+import com.lti.dto.AddQuestionFormDto;
 import com.lti.model.Option;
 import com.lti.model.Question;
 import com.lti.model.Subject;
@@ -59,7 +60,28 @@ public class AddQuestionsController {
 					questionDao.save(question);
 			}
 		}
-		return "welcome.jsp";
-		 
+		return "welcome.jsp";	
 	}
+
+	public String AddQuestionWithForm(AddQuestionFormDto addQuestionFormDto,Map model) {
+		Subject subject1 = new Subject();
+		
+
+		
+		return null;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
