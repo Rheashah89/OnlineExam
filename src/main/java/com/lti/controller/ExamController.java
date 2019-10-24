@@ -74,13 +74,16 @@ public class ExamController {
 			@RequestParam("option")int option){
 		Map<Integer,Question> questions = (Map<Integer, Question>) request.getSession().getAttribute("questions");
 		
-		Question question =  (Question) request.getSession().getAttribute("pointer");
+		Question question =  questions.get((Integer)request.getSession().getAttribute("pointer"));
 		Set<Option> options = question.getOptions();
 		int score = answerService.checkAnswer(options,option);
 		
 		Answer answer = new Answer();
-		Exam exam = (Exam) request.getSession().getAttribute("questions");
-		
+		Exam exam = (Exam) request.getSession().getAttribute("exam");
+		answer.setExamId(exam);
+		answer.setQuestion(question);
+		answer.setScore(score);
+		answerService.addAnswer(answer);
 		
 		int key = (int) request.getSession().getAttribute("pointer")+cursor;
 		Question currentQuestion = questions.get(key);

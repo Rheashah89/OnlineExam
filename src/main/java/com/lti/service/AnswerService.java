@@ -3,11 +3,13 @@ package com.lti.service;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lti.dao.AnswerDao;
 import com.lti.model.Answer;
 import com.lti.model.Option;
 
+@Service
 public class AnswerService {
 
 	@Autowired
