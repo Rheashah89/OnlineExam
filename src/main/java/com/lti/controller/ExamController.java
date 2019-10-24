@@ -23,7 +23,7 @@ import com.lti.service.ExamService;
 import com.lti.service.QuestionService;
 
 @Controller
-@SessionAttributes({"exam","questions","subject","pointer"})
+@SessionAttributes({"exam","questions","subject","pointer","selectedId"})
 public class ExamController {
 
 	@Autowired
@@ -71,8 +71,12 @@ public class ExamController {
 	
 	@RequestMapping(path="/exam.lti" ,method=RequestMethod.POST)
 	public String questionDisplay(HttpServletRequest request, Map model,@RequestParam("cursor") int cursor,
-			@RequestParam("option")int option){
+			@RequestParam(value="option",required=false)Integer option){
 		Map<Integer,Question> questions = (Map<Integer, Question>) request.getSession().getAttribute("questions");
+		
+		if(option==null){
+			option=0;
+		}
 		
 		Question question =  questions.get((Integer)request.getSession().getAttribute("pointer"));
 		Set<Option> options = question.getOptions();
@@ -80,13 +84,28 @@ public class ExamController {
 		
 		Answer answer = new Answer();
 		Exam exam = (Exam) request.getSession().getAttribute("exam");
-		answer.setExamId(exam);
-		answer.setQuestion(question);
-		answer.setScore(score);
-		answerService.addAnswer(answer);
+		
+		try{
+			
+			answer=answerService.fetchAnswerByQuestionAndExam(exam.getExamId(),question.getQuestionId());
+		}catch (Exception e) {
+			answer.setExamId(exam);
+			answer.setQuestion(question);
+			answer.setScore(score);
+			answer.setSelectedId(option);
+			answerService.addAnswer(answer);
+		}
 		
 		int key = (int) request.getSession().getAttribute("pointer")+cursor;
 		Question currentQuestion = questions.get(key);
+		int selectedId;
+		try{
+		answer=answerService.fetchAnswerByQuestionAndExam(exam.getExamId(),currentQuestion.getQuestionId());
+		selectedId = answer.getSelectedId();
+		}catch (Exception e) {
+			selectedId=0;
+		}
+		model.put("selectedId", selectedId);
 		model.put("currentQuestion", currentQuestion);
 		model.put("pointer", key);
 		return "exam.jsp";

@@ -13,7 +13,7 @@ import com.lti.model.Exam;
 public class ExamDao extends GenericDao {
 
 	@PersistenceContext
-	public EntityManager entityManager;
+	private EntityManager entityManager;
 	
 	public Object fetchExam(int userId, int subjectId){
 		

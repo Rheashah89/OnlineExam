@@ -21,14 +21,21 @@
    <form action="exam.lti" method="post">
       <div><h3>Question No: ${pointer}</h3></div>
       <hr>
-      <div><p>${currentQuestion.question}</p> </div>
+      <div><p style="text-align:left;">${currentQuestion.question}</p> </div>
       <h4>Options</h4>
       <div>
             <ol class="answers">
             	   <c:forEach items="${currentQuestion.options}" var="currentOption"> 
-      			   <li>
+      			   <li style="text-align:left;">
                     <span class="radio">
-                    <input type="radio" name="option" value="${currentOption.optionId}">
+                    <c:choose>
+                    <c:when test="${selectedId == currentOption.optionId }">
+                    <input type="radio" name="option" value="${currentOption.optionId}" checked>
+                    </c:when>
+                    <c:otherwise>
+                     <input type="radio" name="option" value="${currentOption.optionId}">
+                    </c:otherwise>
+                    </c:choose>
                     <span>${currentOption.option}</span>
                     </span>
                   </li>

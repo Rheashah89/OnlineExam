@@ -29,4 +29,8 @@ public class AnswerService {
 		}
 		return 0;
 	}
+
+	public Answer fetchAnswerByQuestionAndExam(int examId, int questionId) {
+		return (Answer) answerDao.fetchAnswerByQuestionAndExam(examId,questionId); 
+	}
 }
