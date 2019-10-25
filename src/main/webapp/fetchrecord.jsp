@@ -44,6 +44,12 @@
     </div>
     <div > <input type="submit" value="Search Students"> </div>
     </form>
+    <div>
+    <form action="searchbystudentname.lti" method="post">
+    <input type="text" name="studentEmail" placeholder="Enter Student Email">
+    <input type="submit" value="Search" >
+    </form>
+    </div>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
