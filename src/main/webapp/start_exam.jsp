@@ -14,19 +14,19 @@
         INSTRUCTIONS
         <hr>
         <ul>
-        <li><span>Before starting the exam:</span></li>
+        <li><p>Before starting the exam:</p></li>
 
-        <li><span>Please verify that the student's last name appears correctly within the User ID box.</span></li>
+        <li><p>Please verify that the student's last name appears correctly within the User ID box.</p></li>
                 
-        <li style="float:left;"><span>During the exam:</span></li>
+        <li ><p>During the exam:</p></li>
                 
-        <li><span>The student may not use his or her textbook, course notes, or receive help from a proctor or any other outside source.</span></li>
-        <li><span>Students must complete the 50-question multiple-choice exam within the 75-minute time frame allotted for the exam.</span></li>
-        <li><span>Students must not stop the session and then return to it. </span></li>
-        <li><span>This is especially important in the online environment where the system will "time-out" and not allow the student or you to reenter the exam site.</span></li>
-        <li><span>What to do if your online exam is interrupted</span></li>
-        <li><span>If your online exam is interrupted, click the "Back" button on your web browser to see if you can return to the exam.  </span></li>
-        <li><span>If not, follow the instructions below to resume taking the exam.</span></li>
+        <li><p>The student may not use his or her textbook, course notes, or receive help from a proctor or any other outside source.</p></li>
+        <li><p>Students must complete the 50-question multiple-choice exam within the 75-minute time frame allotted for the exam.</p></li>
+        <li><p>Students must not stop the session and then return to it. </p></li>
+        <li><p>This is especially important in the online environment where the system will "time-out" and not allow the student or you to reenter the exam site.</p></li>
+        <li><p>What to do if your online exam is interrupted</p></li>
+        <li><p>If your online exam is interrupted, click the "Back" button on your web browser to see if you can return to the exam.  </p></li>
+        <li><p>If not, follow the instructions below to resume taking the exam.</p></li>
       
         </ul>
         <div>

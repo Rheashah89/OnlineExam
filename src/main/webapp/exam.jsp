@@ -19,7 +19,7 @@
 
    <div class="card">
    <form action="exam.lti" method="post">
-      <div><h3>Question No: ${pointer}</h3></div>
+      <div><h3>Question No: ${pointer+1}</h3></div>
       <hr>
       <div><p style="text-align:left;">${currentQuestion.question}</p> </div>
       <h4>Options</h4>
@@ -47,16 +47,18 @@
         
         <button type="submit" id="previousquestion" name="cursor" value="-1">Previous Question</button>
         </div>
-        
+        <c:if test = "${pointer < 9}" > 
         <div style="float: right;">
         <button type="submit" id="nextquestion" name="cursor" value="1">Next Question</button>
-        </form>
+        </div>
+        </c:if>
+        
         </div>
    </div> 
    </div>
   		 <div>
-        <button id="submitexam">Submit Exam</button>
+        <button id="submitexam" name="submitExam" value="1">Submit Exam</button>
         </div>
-
+</form>
 </body>
 </html>

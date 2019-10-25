@@ -432,3 +432,6 @@ tr:hover{
     margin-left: 25px;
     width:auto;
 }
+p{
+	text-align: left;
+}

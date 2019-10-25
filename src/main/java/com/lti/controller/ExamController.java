@@ -16,14 +16,16 @@ import com.lti.model.Answer;
 import com.lti.model.Exam;
 import com.lti.model.Option;
 import com.lti.model.Question;
+import com.lti.model.Report;
 import com.lti.model.Subject;
 import com.lti.model.User;
 import com.lti.service.AnswerService;
 import com.lti.service.ExamService;
 import com.lti.service.QuestionService;
+import com.lti.service.ReportService;
 
 @Controller
-@SessionAttributes({"exam","questions","subject","pointer","selectedId"})
+@SessionAttributes({"exam","questions","subject","pointer","selectedId","report"})
 public class ExamController {
 
 	@Autowired
@@ -35,26 +37,24 @@ public class ExamController {
 	@Autowired
 	private AnswerService answerService;
 	
+	@Autowired
+	private ReportService reportService;
+	
+	
+	
 	@RequestMapping(path="/startExam.lti")
 	public String loadExamPage(HttpServletRequest request,Map model){
 		User user = (User)request.getSession().getAttribute("user");
 		Subject subject = (Subject)request.getSession().getAttribute("subject");
 		System.out.println(subject.getSubjectId());
-		Exam exam = new Exam();
-		try{
-		exam = examService.fetchExam(user.getUserID(),subject.getSubjectId());
-		}catch (Exception e) {
-			exam.setSubject(subject);
-			exam.setUser(user);
-			exam.setCurrentLevel(1);
-			exam = examService.save(exam);
-		}
+		
+		Exam exam = examService.fetchExam(user,subject);
 		model.put("exam", exam);
 		Map<Integer,Question> questions = questionService.fetchQuestions(subject.getSubjectId(),exam.getCurrentLevel());
 		
 		model.put("questions", questions);
-		model.put("pointer", 1);
-		Question currentQuestion = questions.get(1);
+		model.put("pointer", 0);
+		Question currentQuestion = questions.get(0);
 		model.put("currentQuestion", currentQuestion);
 		return "exam.jsp";
 	}
@@ -71,30 +71,25 @@ public class ExamController {
 	
 	@RequestMapping(path="/exam.lti" ,method=RequestMethod.POST)
 	public String questionDisplay(HttpServletRequest request, Map model,@RequestParam("cursor") int cursor,
-			@RequestParam(value="option",required=false)Integer option){
+			@RequestParam(value="option",required=false)Integer option,
+			@RequestParam(value="submitExam",required=false)Integer submitExam){
 		Map<Integer,Question> questions = (Map<Integer, Question>) request.getSession().getAttribute("questions");
 		
 		if(option==null){
 			option=0;
 		}
 		
+		if(submitExam==null){
+			submitExam=0;
+		}
+		
 		Question question =  questions.get((Integer)request.getSession().getAttribute("pointer"));
 		Set<Option> options = question.getOptions();
 		int score = answerService.checkAnswer(options,option);
-		
-		Answer answer = new Answer();
+
 		Exam exam = (Exam) request.getSession().getAttribute("exam");
 		
-		try{
-			
-			answer=answerService.fetchAnswerByQuestionAndExam(exam.getExamId(),question.getQuestionId());
-		}catch (Exception e) {
-			answer.setExamId(exam);
-			answer.setQuestion(question);
-			answer.setScore(score);
-			answer.setSelectedId(option);
-			answerService.addAnswer(answer);
-		}
+		Answer answer = answerService.getAnswer(exam,question,score,option);
 		
 		int key = (int) request.getSession().getAttribute("pointer")+cursor;
 		Question currentQuestion = questions.get(key);
@@ -105,10 +100,22 @@ public class ExamController {
 		}catch (Exception e) {
 			selectedId=0;
 		}
+		
+		Report report = reportService.getReport(exam,score);
+		model.put("report", report);
+		
+		if(submitExam==1){
+			if(report.getTotalMarks()==12){
+				report.setClearedLevel(exam.getCurrentLevel());
+			}
+			model.put("report", report);
+			return "report.jsp";
+		}
+		
 		model.put("selectedId", selectedId);
 		model.put("currentQuestion", currentQuestion);
 		model.put("pointer", key);
 		return "exam.jsp";
-		
 	}
+	
 }

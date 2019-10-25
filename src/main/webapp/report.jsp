@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +22,18 @@
         <div style="font-weight: bold; font-size: 20px;">Report</div>
         <hr>
             <table class="profiletable">
-                    <tr><td class="fields">Name:</td><td>Dr.Rogi</td></tr> 
-                    <tr><td class="fields">Subject:</td><td>java</td></tr> 
-                    <tr><td class="fields">Level:</td><td>1</td></tr> 
-                    <tr><td class="fields">Score:</td><td>-66</td></tr> 
+                    <tr><td class="fields">Name:</td><td>${report.exam.user.userName}</td></tr> 
+                    <tr><td class="fields">Subject:</td><td>${report.exam.subject.subjectName}</td></tr> 
+                    <tr><td class="fields">Level:</td><td>${report.exam.currentLevel}</td></tr> 
+                    <tr><td class="fields">Score:</td><td>${report.totalMarks}</td></tr> 
+                    <c:choose>
+                    <c:when test="${report.clearedLevel == report.exam.currentLevel}">
+                     <tr><td class="fields">Status:</td><td>Pass</td></tr>
+                    </c:when>
+                    <c:otherwise>
+                     <tr><td class="fields">Status:</td><td>Fail</td></tr>
+                    </c:otherwise>
+                    </c:choose>
                     </table>
         <a href="welcome.jsp"><button>Exit</button></a>
     </div>

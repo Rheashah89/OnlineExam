@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dao.AnswerDao;
 import com.lti.model.Answer;
+import com.lti.model.Exam;
 import com.lti.model.Option;
+import com.lti.model.Question;
 
 @Service
 public class AnswerService {
@@ -15,9 +17,6 @@ public class AnswerService {
 	@Autowired
 	private AnswerDao answerDao;
 
-	public void addAnswer(Answer answer){
-		answerDao.save(answer);
-	}
 
 	public int checkAnswer(Set<Option> options, int option){
 		for (Option checkOption : options) {
@@ -32,5 +31,21 @@ public class AnswerService {
 
 	public Answer fetchAnswerByQuestionAndExam(int examId, int questionId) {
 		return (Answer) answerDao.fetchAnswerByQuestionAndExam(examId,questionId); 
+	}
+
+
+	public Answer getAnswer(Exam exam,Question question,int score,int option){
+		
+		Answer answer = new Answer();
+		try{
+			answer=(Answer) answerDao.fetchAnswerByQuestionAndExam(exam.getExamId(),question.getQuestionId());
+		}catch (Exception e) {
+			answer.setExamId(exam);
+			answer.setQuestion(question);
+			}
+			answer.setScore(score);
+			answer.setSelectedId(option);
+			answer = (Answer) answerDao.save(answer);
+			return answer;
 	}
 }
