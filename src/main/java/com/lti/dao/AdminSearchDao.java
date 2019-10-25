@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.model.Answer;
 import com.lti.model.Exam;
+import com.lti.model.Option;
+import com.lti.model.Question;
 import com.lti.model.User;
 
 @Repository
@@ -64,15 +66,56 @@ public class AdminSearchDao {
 
 	}
 	
-	public List<Answer> viewReportBySubjectNameAndEmail(int examId){
+	public List<Question> viewReportBySubjectNameAndEmail(int examId){
 
-		String ql = "select a from Answer a where a.exam.examId=:sn";
+		String ql = "select distinct q from Answer a join a.exam e join a.question q join fetch q.options o where e.examId=:sn" ;
 		Query q = entityManager.createQuery(ql);
 
 		q.setParameter("sn",examId);
+		
+		//join fetch q.Option o
+		
+		String ql1= "select a.selectedId from Answer a where a.exam.examId=:sn";
+		Query q1 = entityManager.createQuery(ql1);
 
+		q1.setParameter("sn",examId);
+		//list of answers selected by user
+		List<Integer> list=  q1.getResultList();
+		
+		//list of questions the user gave the exam
+		List<Question> questions= q.getResultList();
+			 
+		for(Question ques :questions){
+			for(Option opt: ques.getOptions()){
+				if(list.contains(opt.getOptionId())){
+					opt.setSelected(true);
+				}
+			}
+		}
+		
+		return questions;
+		
+	}
+	
+	
+	public List<Question> removeQuestion(int subjectId, int level){
+
+		String ql = "select q from Question q where q.subject.subjectId=:sn and q.questionLevel=:le" ;
+		Query q = entityManager.createQuery(ql);
+
+		q.setParameter("sn",subjectId);
+		q.setParameter("le",level);
 		return q.getResultList();
 		
 		
+	}
+
+
+	public void removeQuestionById(int questionId) {
+		
+		String ql = "delete q from Question q where q.questionId=:sn" ;
+		Query q = entityManager.createQuery(ql);
+
+		q.setParameter("sn",questionId);
 	}
 }

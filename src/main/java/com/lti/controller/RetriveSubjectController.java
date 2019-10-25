@@ -35,7 +35,9 @@ public class RetriveSubjectController {
 		else if (buttonvalue.equals("viewreports")) {
 			return "fetchrecord.jsp";
 		}
-		
+		else if(buttonvalue.equals("removequestion")){
+			return "removequestion.jsp";
+		}
 		
 		return "admin.html";
 	}

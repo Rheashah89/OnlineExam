@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.lti.dao.AdminSearchDao;
 import com.lti.model.Answer;
 import com.lti.model.Exam;
+import com.lti.model.Option;
+import com.lti.model.Question;
 import com.lti.model.User;
 
 
@@ -35,7 +37,18 @@ public class AdminSearchService {
 	}
 	
 	
-	public List<Answer> viewReportBySubjectNameAndEmail(int examId){
+	public List<Question> viewReportBySubjectNameAndEmail(int examId){
 		return adminSearchdao.viewReportBySubjectNameAndEmail(examId);
+	}
+	
+	
+	public List<Question> removeQuestion(int subjectId,int level){
+		return adminSearchdao.removeQuestion(subjectId, level);
+	}
+
+
+	public void removeQuestionById(int questionId) {
+		adminSearchdao.removeQuestionById(questionId);
+		
 	}
 }

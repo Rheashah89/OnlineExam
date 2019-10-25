@@ -16,13 +16,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lti.model.Answer;
 import com.lti.model.Exam;
+import com.lti.model.Option;
+import com.lti.model.Question;
 import com.lti.model.Subject;
 import com.lti.model.User;
 import com.lti.service.AdminSearchService;
 import com.lti.service.LoginServiceInterface;
 
 @Controller
-@SessionAttributes({"users","exams","answers"})
+@SessionAttributes({"users","exams","options"})
 public class AdminSearchController {
 	@Autowired
 	private LoginServiceInterface loginServiceInterface;
@@ -61,17 +63,45 @@ public class AdminSearchController {
 
 	}
 	
+	
+	
 	@RequestMapping(path="/viewReportBySubjectNameAndEmail.lti",method= RequestMethod.POST)
 	public String viewReportBySubjectNameAndEmail(HttpServletRequest request, Map model,
 												@RequestParam("examId") int examId){
+		System.out.println(examId);
 		
 		
-		List<Answer> answers =adminSearchService.viewReportBySubjectNameAndEmail(examId);
-		model.put("answers", answers);
+		List<Question> questions =adminSearchService.viewReportBySubjectNameAndEmail(examId);
 		
-		return null;
+//		for(Question q: questions){
+//		System.out.println(q.getQuestion());
+//		System.out.println(q.getOptions());
+//		
+//		}
+		model.put("questions", questions);
+		
+		return "studentExamInfo.jsp";
 	}
 	
+	
+	
+	@RequestMapping(path="/removequestion.lti" , method= RequestMethod.POST)
+	public String removeQuestion(@RequestParam("subjectId") int subjectId, @RequestParam("level") int level, Map model){
+		
+		List<Question> questions = adminSearchService.removeQuestion(subjectId,level);
+		model.put("questions", questions);
+		
+		return "ques_remove.jsp";
+		
+	}
+	
+	@RequestMapping(path="/deleteQuestion.lti" , method= RequestMethod.POST)
+	public String removeQuestionById(@RequestParam("questionId") int questionId,Map model){
+		
+		adminSearchService.removeQuestionById(questionId);
+		
+		return "ques_remove.jsp";
+	}
 
 	
 }

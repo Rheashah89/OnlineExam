@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
@@ -7,14 +8,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Remove Question</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <div class="form">
-    <div>Select Subject: <input type="text" name="test">   </div>
-    <div>Select Level: <input type="text" name="file">   </div>
-    <div><a href="ques_remove.jsp"><button>NEXT</button></a>  </div>
-    </div>
+    <form action="removequestion.lti" method="post">
+ 
+    <div  id="technology" style="width:100px;height: 100px;">
+       Select Subject:
+        <select class="innerselect" name="subjectId">
+      
+        <c:forEach var="subject" items="${subjects}">
+            <option value="${subject.subjectId}">${subject.subjectName}</option>
+           </c:forEach>
+        </select>
+    </div> 
+    <div>Select Level:  
+  		<select name="level">
+  		<option value="1">1</option>
+  		<option value="2">2</option>
+  		<option value="3">3</option>
+ 
+		</select>
+      </div>
+    <input type="submit" value="Next">
+    </form>
 </body>
 </html>

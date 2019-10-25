@@ -11,10 +11,10 @@
 <table border="1">
 		<thead>
 			<tr>
-				<th>Subject ID</th>
+			
 				<th>Exam ID</th>                                                                                                                                
 				<th>Subject Name</th>
-				<th>Current Level</th>
+				<th> Level</th>
 				
 				
 			</tr>
@@ -24,8 +24,8 @@
 			
 				<form action="viewReportBySubjectNameAndEmail.lti" method="post">
 				<tr>
-				<td name="subjectId">${exam.subject.subjectId}</td>
-				<td name="examId" value="${exam.examId}">${exam.examId}</td>
+				
+				<td><input type="hidden" name="examId" value="${exam.examId}">${exam.examId}</input></td>
 				<td name="subjectName">${exam.subject.subjectName}</td>
 				<td name="currentLevel">${exam.currentLevel }</td>
 				<td><input type="submit" value="View Report"></td>

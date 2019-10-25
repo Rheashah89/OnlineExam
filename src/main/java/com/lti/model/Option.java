@@ -2,6 +2,7 @@ package com.lti.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="TBL_OPTION")
@@ -20,7 +22,7 @@ public class Option {
 	@Column(name="OPTION_ID")
 	private int optionId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="QUESTION_ID")
 	private Question question;
 	
@@ -29,6 +31,29 @@ public class Option {
 	
 	@Column(name="CORRECT_OPTION") // y or n
 	private String correctOption;
+	
+	@Transient
+	private Boolean selected;
+	
+	public String getCorrectOption() {
+		return correctOption;
+	}
+
+	public void setCorrectOption(String correctOption) {
+		this.correctOption = correctOption;
+	}
+
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Boolean selected) {
+		this.selected = selected;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
 
 	public int getOptionId() {
 		return optionId;
