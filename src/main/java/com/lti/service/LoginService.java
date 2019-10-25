@@ -12,9 +12,9 @@ public class LoginService implements LoginServiceInterface {
 	@Autowired
 	private LoginDao logindao;
 
-	public User login(String email){
+	public User fetchUserByEmail(String email){
 		
-		return logindao.fetchUser(email);
+		return logindao.fetchUserByEmail(email);
 		
 	}
 }

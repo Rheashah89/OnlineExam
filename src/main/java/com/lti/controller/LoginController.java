@@ -24,7 +24,7 @@ public class LoginController {
 	
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password  , Map model){
 		
-		User user = loginServiceInterface.login(email);
+		User user = loginServiceInterface.fetchUserByEmail(email);
 		String admin="A";
 		
 		model.put("user", user);

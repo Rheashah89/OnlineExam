@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.dao.AdminSearchDao;
-
+import com.lti.model.Answer;
+import com.lti.model.Exam;
 import com.lti.model.User;
 
 
@@ -25,5 +26,16 @@ public class AdminSearchService {
 		}
 		
 		return adminSearchdao.searchUsers(firstselect,secondselect);
+	}
+	
+	
+	public List<Exam> searchUsersById(int studentId){
+		
+		return adminSearchdao.searchUsersById(studentId);
+	}
+	
+	
+	public List<Answer> viewReportBySubjectNameAndEmail(int examId){
+		return adminSearchdao.viewReportBySubjectNameAndEmail(examId);
 	}
 }
