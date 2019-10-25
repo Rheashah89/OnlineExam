@@ -59,6 +59,6 @@
   		 <div>
         <button id="submitexam" name="submitExam" value="1">Submit Exam</button>
         </div>
-</form>
+
 </body>
 </html>
