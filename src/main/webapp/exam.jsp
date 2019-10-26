@@ -42,23 +42,25 @@
    				 </c:forEach>
             </ol>
          </div> 
-    <div>
-         <div style="float: left;">
+
+   </div> 
+       <div style="width:100%; display:inline-block;    margin-top: 10px;">
+         <div style="width:33%;float: left;">
         
-        <button type="submit" id="previousquestion" name="cursor" value="-1">Previous Question</button>
+        <button type="submit" id="previousquestion" name="cursor" value="-1" style="float:right;">Previous Question</button>
+        </div>
+        <div style="width:33%;float: left;">
+        <button id="submitexam" name="submitExam" value="1" style="left: 35%; position: relative;">Submit Exam</button>
         </div>
         <c:if test = "${pointer < 9}" > 
-        <div style="float: right;">
+        <div style="width:33%;float: left;">
         <button type="submit" id="nextquestion" name="cursor" value="1">Next Question</button>
         </div>
         </c:if>
         
         </div>
-   </div> 
    </div>
-  		 <div>
-        <button id="submitexam" name="submitExam" value="1">Submit Exam</button>
-        </div>
+  		 
 
 </body>
 </html>
