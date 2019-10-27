@@ -1,5 +1,7 @@
 package com.lti.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lti.dao.QuestionDao;
 import com.lti.dto.AddQuestionFormDto;
+import com.lti.dto.AddQuestionsFromFileDto;
 import com.lti.model.Option;
 import com.lti.model.Question;
 import com.lti.model.Subject;
@@ -66,7 +69,6 @@ public class AddQuestionsController {
 	public String AddQuestionWithForm(AddQuestionFormDto addQuestionFormDto,Map model) {
 		Subject subject1 = new Subject();
 		
-
 		
 		return null;
 		
@@ -75,7 +77,19 @@ public class AddQuestionsController {
 	
 	
 	
-	
+	public String AddQuestionsFromFile(AddQuestionsFromFileDto questionsFile){
+		
+		String path = "d:/uploads/";
+		String filename = questionsFile.getFile().getOriginalFilename();
+		String finalpath = path + filename;
+		try {
+			questionsFile.getFile().transferTo(new File(finalpath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 	
 	
 	
