@@ -67,7 +67,7 @@ public class AddQuestionsController {
 	}
 
 	public String AddQuestionWithForm(AddQuestionFormDto addQuestionFormDto,Map model) {
-		Subject subject1 = new Subject();
+		Subject subject = new Subject();
 		
 		
 		return null;

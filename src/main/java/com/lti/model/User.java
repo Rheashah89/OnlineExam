@@ -48,6 +48,12 @@ public class User {
 	@Column(name="USER_DEGREE")
 	private String userDegree;
 	
+	@Column(name="SECURITY_QUESTION")
+	private String securityQuestion;
+	
+	@Column(name="SECURITY_ANSWER")
+	private String securityAnswer;
+	
 	@OneToMany(mappedBy="user",cascade = CascadeType.ALL)
 	private Set<Exam> exams;
 	
@@ -117,6 +123,18 @@ public class User {
 	}
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
+	}
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+	public String getSecurityAnswer() {
+		return securityAnswer;
+	}
+	public void setSecurityAnswer(String securityAnswer) {
+		this.securityAnswer = securityAnswer;
 	}
 	
 	

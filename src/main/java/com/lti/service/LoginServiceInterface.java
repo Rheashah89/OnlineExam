@@ -4,5 +4,5 @@ import com.lti.model.User;
 
 public interface LoginServiceInterface {
 	public User fetchUserByEmail(String email);
-
+	public User updateUser(User user);
 }

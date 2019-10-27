@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.lti.model.User;
 
 @Repository
-public class LoginDao {
+public class LoginDao extends GenericDao{
 
 	@PersistenceContext
 	private EntityManager entityManager;
