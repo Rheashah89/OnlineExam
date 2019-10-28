@@ -13,9 +13,11 @@
 <body>
     <div class="form">
         <form action="enterEmail.lti">
-            Email: <input type="email" name="email"><br>
+         Email : <input type="text" name="email"/>
+            <br>
             <button type="submit">Continue</button>
         </form>
     </div>
 </body>
 </html>
+

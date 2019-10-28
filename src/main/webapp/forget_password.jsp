@@ -14,10 +14,12 @@
     <div class="form">
     	<p>${message}</p>
         <form action="forgetPassword.lti" method="post">
-            New Password <input type="password" name="newpassword"><br>
-            Confirm Password<input type="password" name="confirmpassword"><br>
+            New Password : <input type="text" name="newpassword"/><br>
+            Confirm Password :<input type="text" name="confirmpassword"/><br>
+            <br>
             <button type="submit">Reset</button>
         </form>
     </div>
 </body>
 </html>
+

@@ -14,7 +14,10 @@
     <div class="form">
         <form action="validateUser.lti" method="post">
             <label>${user.securityQuestion}</label><br>
+            <br>
             Answer : <input type="text" name="answer"/>
+            <br>
+            <br>
             <button type="submit">Check</button>
         </form>
     </div>

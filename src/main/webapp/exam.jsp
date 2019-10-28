@@ -116,9 +116,10 @@
 		</div>
 		<div style="width: 100%; display: inline-block; margin-top: 10px;">
 			<div style="width: 33%; float: left;">
-
+			<c:if test="${pointer > 0}">
 				<button type="submit" id="previousquestion" name="cursor" value="-1"
 					style="float: right;">Previous Question</button>
+			</c:if>
 			</div>
 			<div style="width: 33%; float: left;">
 				<button id="submitexam" name="submitExam" value="1"

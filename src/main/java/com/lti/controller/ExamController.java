@@ -63,16 +63,16 @@ public class ExamController {
 			return "login.jsp";
 		}
 		Subject subject = (Subject)request.getSession().getAttribute("subject");
-		System.out.println(subject.getSubjectId());
+	//	System.out.println(subject.getSubjectId());
 		
 		Exam exam = examService.fetchExam(user,subject);
 		exam.setNoOfAttempts(exam.getNoOfAttempts()+1);
 		exam = examService.fetchExam(user,subject);
-		exam.getSubject().getSubjectId();
+		//exam.getSubject().getSubjectId();
 		model.put("exam", exam);
 		Map<Integer,Question> questions = questionService.fetchQuestions(subject.getSubjectId(),exam.getCurrentLevel());
 		
-		System.out.println(questions.get(1));
+		//System.out.println(questions.get(1));
 		
 		model.put("questions", questions);
 		model.put("pointer", 0);
@@ -129,7 +129,7 @@ public class ExamController {
 		model.put("report", report);
 		
 		if(submitExam==1){
-			if(report.getTotalMarks()==12){
+			if(report.getTotalMarks()>=12){
 				report.setClearedLevel(exam.getCurrentLevel());
 			}
 			model.put("report", report);

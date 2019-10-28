@@ -81,6 +81,6 @@ public class LoginController {
 	public String logout(HttpServletRequest request, Map model){
 		model.clear();
 		request.getSession().invalidate();
-		return "login.jsp";
+		return "index.html";
 	}
 }

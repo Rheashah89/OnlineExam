@@ -21,7 +21,7 @@
         <li ><p>During the exam:</p></li>
                 
         <li><p>The student may not use his or her textbook, course notes, or receive help from a proctor or any other outside source.</p></li>
-        <li><p>Students must complete the 50-question multiple-choice exam within the 75-minute time frame allotted for the exam.</p></li>
+        <li><p>Students must complete the 10-question multiple-choice exam within the time frame allotted for the exam for proceeding to the next level .</p></li>
         <li><p>Students must not stop the session and then return to it. </p></li>
         <li><p>This is especially important in the online environment where the system will "time-out" and not allow the student or you to reenter the exam site.</p></li>
         <li><p>What to do if your online exam is interrupted</p></li>
