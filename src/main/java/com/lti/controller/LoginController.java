@@ -1,5 +1,6 @@
 package com.lti.controller;
 
+import java.lang.ref.ReferenceQueue;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +67,13 @@ public class LoginController {
 		user.setUserPassword(password);
 		user = loginServiceInterface.updateUser(user);
 		model.put("message", "Password Changed Successfully! Please login with new password");
+		return "login.jsp";
+	}
+	
+	@RequestMapping(path="/logout.lti")
+	public String logout(HttpServletRequest request, Map model){
+		model.clear();
+		request.getSession().invalidate();
 		return "login.jsp";
 	}
 }

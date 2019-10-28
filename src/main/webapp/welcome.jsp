@@ -16,7 +16,7 @@
         <a class="active" href="welcome.jsp" action = "welcome.jsp">Home</a>
         <a href="about_us.jsp" action = "about_us.jsp">About Us</a>
         <a style="float:right" href="profile.jsp" action = "profile.jsp">Profile</a>
-        <a style="float:right" href="index.html" action = "index.html">Logout</a>
+        <a style="float:right" href="logout.lti">Logout</a>
     </div>
     <div class="outterdiv">
         <div class="card">

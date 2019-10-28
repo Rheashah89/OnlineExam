@@ -35,7 +35,7 @@
                 
                 <div class="column">
                   <div class="card">
-                    <h3>Python</h3>
+                    <h3>PHP</h3>
                     <div><a href="selectSubject.lti?subjectId=3"><button>Start</button></a></div>
                   </div>
                 </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="column">
                             <div class="card">
-                              <h3>PHP</h3>
+                              <h3>Python</h3>
                               <div><a href="selectSubject.lti?subjectId=5"><button>Start</button></a></div>
                             </div>
                     </div>
