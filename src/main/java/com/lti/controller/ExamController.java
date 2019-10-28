@@ -25,7 +25,7 @@ import com.lti.service.QuestionService;
 import com.lti.service.ReportService;
 
 @Controller
-@SessionAttributes({"exam","questions","subject","pointer","selectedId","report"})
+@SessionAttributes({"user","exam","questions","subject","pointer","selectedId","report"})
 public class ExamController {
 
 	@Autowired
@@ -45,6 +45,9 @@ public class ExamController {
 	@RequestMapping(path="/startExam.lti")
 	public String loadExamPage(HttpServletRequest request,Map model){
 		User user = (User)request.getSession().getAttribute("user");
+		if(user==null){
+			return "login.jsp";
+		}
 		Subject subject = (Subject)request.getSession().getAttribute("subject");
 		System.out.println(subject.getSubjectId());
 		
@@ -60,7 +63,13 @@ public class ExamController {
 	}
 	
 	@RequestMapping(path="/selectSubject.lti")
-	public String setSubjectInExam(@RequestParam("subjectId") int subId, Map model){
+	public String setSubjectInExam(HttpServletRequest request,@RequestParam("subjectId") int subId, Map model){
+		
+		User user = (User)request.getSession().getAttribute("user");
+		if(user==null){
+			return "login.jsp";
+		}
+		
 		Subject subject = new Subject();
 		subject.setSubjectId(subId);
 		System.out.println(subId);
@@ -73,6 +82,12 @@ public class ExamController {
 	public String questionDisplay(HttpServletRequest request, Map model,@RequestParam("cursor") int cursor,
 			@RequestParam(value="option",required=false)Integer option,
 			@RequestParam(value="submitExam",required=false)Integer submitExam){
+		
+		User user = (User)request.getSession().getAttribute("user");
+		if(user==null){
+			return "login.jsp";
+		}
+		
 		Map<Integer,Question> questions = (Map<Integer, Question>) request.getSession().getAttribute("questions");
 		
 		if(option==null){

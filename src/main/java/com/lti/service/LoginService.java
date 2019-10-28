@@ -17,4 +17,9 @@ public class LoginService implements LoginServiceInterface {
 		return logindao.fetchUserByEmail(email);
 		
 	}
+	
+	public User updateUser(User user){
+		return (User)logindao.save(user);
+	}
+	
 }

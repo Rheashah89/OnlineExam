@@ -2,6 +2,8 @@ package com.lti.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,6 @@ public class LoginController {
 	LoginServiceInterface loginServiceInterface;
 	
 	@RequestMapping(path="/login.lti",method=RequestMethod.POST) 
-	
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password  , Map model){
 		
 		User user = loginServiceInterface.fetchUserByEmail(email);
@@ -29,8 +30,6 @@ public class LoginController {
 		
 		model.put("user", user);
 		if(email.equals(user.getUserEmail()) && password.equals(user.getUserPassword())){
-			
-		
 			if(admin.equals(user.getUserRole())){
 				return "admin.html";
 			}
@@ -43,5 +42,30 @@ public class LoginController {
 	}
 	
 	
-
+	@RequestMapping(path="/enterEmail.lti",method=RequestMethod.POST)
+	public String forgotPassword(@RequestParam("email") String email, Map model){
+		User user = loginServiceInterface.fetchUserByEmail(email);
+		model.put("user", user);
+		return "securityQuestion.jsp";	
+	}
+	
+	@RequestMapping(path="/validateUser.lti",method=RequestMethod.POST)
+	public String checkUser(@RequestParam("answer") String answer, Map model,HttpServletRequest request){
+		User user = (User)request.getSession().getAttribute("user");
+		if(user.getSecurityAnswer().equalsIgnoreCase(answer)){
+			model.put("message", "Change Password");
+			return "forget_password.jsp";
+		}
+		model.put("message","Sorry! you are not a valid user...Please Try Again!");
+		return "login.jsp";	
+	}
+	
+	@RequestMapping(path="/forgetPassword",method=RequestMethod.POST)
+	public String changePassword(@RequestParam("newpassword") String password,HttpServletRequest request,Map model){
+		User user = (User)request.getSession().getAttribute("user");
+		user.setUserPassword(password);
+		user = loginServiceInterface.updateUser(user);
+		model.put("message", "Password Changed Successfully! Please login with new password");
+		return "login.jsp";
+	}
 }
