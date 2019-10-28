@@ -43,6 +43,8 @@
 </head>
 <body>
       <form action="" method="POST">
+      <table>
+      <tr>
      <div>
         <div>
         <h3>Add New Question </h3>
@@ -142,7 +144,13 @@
         
     </div>
     </div> 
-<div > <input type ="submit" value="AddQuestion"></div> 
+    </tr>
+    
+    <tr>
+<div > <cneter><input type ="submit" value="AddQuestion"></cneter></div> 
+</tr>
+</table>
+
 
         
 </form> 

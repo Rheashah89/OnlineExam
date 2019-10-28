@@ -13,10 +13,10 @@
 <body>
 
 
-<form method="POST" action="${pageContext.request.contextPath}/upload" enctype="multipart/form-data">
+<form method="POST" action="addQuestion.lti" enctype="multipart/form-data">
 
 <h3>Upload File</h3>
-    <div><input type="file" name="file" /></div>
+    <div><input type="file" name="file"/></div>
    <div> <input type="submit" value="Submit" /></div>
     
     

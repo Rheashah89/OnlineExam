@@ -11,21 +11,28 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.lti.dao.QuestionDao;
+import com.lti.model.Question;
 
 @Service
 public class AddQuestionsService implements AddQuestionsServiceInterface{
 
+	@Autowired
+	QuestionDao questionDao;
 	
-	
-	public static final String SAMPLE_XLSX_FILE_PATH = "D:\\INPUT\\ques_final.xls";
+	public static final String SAMPLE_XLSX_FILE_PATH = "D:\\INPUT\\";
 	@Override
-	public LinkedHashMap<Integer, ArrayList<ArrayList<String>>> addQuestionsUsingFile() {
+	public LinkedHashMap<Integer, ArrayList<ArrayList<String>>> addQuestionsUsingFile(String finalName) {
 		Workbook workbook;
 		DataFormatter dataFormatter = new DataFormatter();
 		LinkedHashMap<Integer, ArrayList<ArrayList<String>>> data = null;
 		try {
-			workbook = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH));
+			
+			String filePath=SAMPLE_XLSX_FILE_PATH+finalName;
+			workbook = WorkbookFactory.create(new File(filePath));
 			// Retrieving the number of sheets in the Workbook
 			Sheet sheet = workbook.getSheetAt(0);
 
@@ -78,6 +85,10 @@ public class AddQuestionsService implements AddQuestionsServiceInterface{
 			e.printStackTrace();
 		}
 		return data;
+	}
+	@Override
+	public void addQuestion(Question question) {
+		questionDao.save(question);
 	}
 	
 }
