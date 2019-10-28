@@ -23,6 +23,10 @@
                         <input type="text" name="City" placeholder="Your City">
                         <p>Degree</p>
                         <input type="text" name="Degree" placeholder="Your Degree">
+                        <p>Security Question</p>
+                        <input type="text" name="securityQuestion" placeholder="Question">
+                        <p>Security Answer</p>
+                        <input type="text" name="securityAnswer" placeholder="Answer">
                 </div>
                 <br><br>
                 <div style="width: 50%; margin: 0 auto;">

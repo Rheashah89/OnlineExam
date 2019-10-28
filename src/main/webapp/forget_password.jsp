@@ -13,7 +13,7 @@
 <body>
     <div class="form">
     	<p>${message}</p>
-        <form action="login.jsp">
+        <form action="forgetPassword.lti" method="post">
             New Password <input type="text" name="newpassword"><br>
             Confirm Password<input type="text" name="confirmpassword"><br>
             <button type="submit">Reset</button>

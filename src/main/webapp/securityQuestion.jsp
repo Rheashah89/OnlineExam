@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="form">
-        <form action="validateUser.lti">
-            <label>${user.securityQuestion}</label>
+        <form action="validateUser.lti" method="post">
+            <label>${user.securityQuestion}</label><br>
             Answer : <input type="text" name="answer"/>
             <button type="submit">Check</button>
         </form>

@@ -15,7 +15,7 @@
             <p>Password: <input type="password"  name="password" placeholder="Your Password"> </p><br> 
             <input type="submit" name="btn" value="Login">
         
-            <div><a href ="forget_password.jsp">Forgot Password ?</a> </div>  
+            <div><a href ="enterEmail.jsp">Forgot Password ?</a> </div>  
             <div><a href ="register.jsp">Register</a> </div>  
 
 
