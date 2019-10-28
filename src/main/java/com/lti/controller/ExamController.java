@@ -40,28 +40,6 @@ public class ExamController {
 	@Autowired
 	private ReportService reportService;
 	
-	
-	
-	@RequestMapping(path="/startExam.lti")
-	public String loadExamPage(HttpServletRequest request,Map model){
-		User user = (User)request.getSession().getAttribute("user");
-		if(user==null){
-			return "login.jsp";
-		}
-		Subject subject = (Subject)request.getSession().getAttribute("subject");
-		System.out.println(subject.getSubjectId());
-		
-		Exam exam = examService.fetchExam(user,subject);
-		model.put("exam", exam);
-		Map<Integer,Question> questions = questionService.fetchQuestions(subject.getSubjectId(),exam.getCurrentLevel());
-		
-		model.put("questions", questions);
-		model.put("pointer", 0);
-		Question currentQuestion = questions.get(0);
-		model.put("currentQuestion", currentQuestion);
-		return "exam.jsp";
-	}
-	
 	@RequestMapping(path="/selectSubject.lti")
 	public String setSubjectInExam(HttpServletRequest request,@RequestParam("subjectId") int subId, Map model){
 		
@@ -78,8 +56,35 @@ public class ExamController {
 		
 	}
 	
+	@RequestMapping(path="/startExam.lti")
+	public String loadExamPage(HttpServletRequest request,Map model){
+		User user = (User)request.getSession().getAttribute("user");
+		if(user==null){
+			return "login.jsp";
+		}
+		Subject subject = (Subject)request.getSession().getAttribute("subject");
+		System.out.println(subject.getSubjectId());
+		
+		Exam exam = examService.fetchExam(user,subject);
+		exam.setNoOfAttempts(exam.getNoOfAttempts()+1);
+		exam = examService.fetchExam(user,subject);
+		exam.getSubject().getSubjectId();
+		model.put("exam", exam);
+		Map<Integer,Question> questions = questionService.fetchQuestions(subject.getSubjectId(),exam.getCurrentLevel());
+		
+		System.out.println(questions.get(1));
+		
+		model.put("questions", questions);
+		model.put("pointer", 0);
+		Question currentQuestion = questions.get(0);
+		model.put("currentQuestion", currentQuestion);
+		return "exam.jsp";
+	}
+	
+	
+	
 	@RequestMapping(path="/exam.lti" ,method=RequestMethod.POST)
-	public String questionDisplay(HttpServletRequest request, Map model,@RequestParam("cursor") int cursor,
+	public String questionDisplay(HttpServletRequest request, Map model,@RequestParam(value="cursor",required=false) Integer cursor,
 			@RequestParam(value="option",required=false)Integer option,
 			@RequestParam(value="submitExam",required=false)Integer submitExam){
 		
@@ -96,6 +101,10 @@ public class ExamController {
 		
 		if(submitExam==null){
 			submitExam=0;
+		}
+		
+		if(cursor==null){
+			cursor=0;
 		}
 		
 		Question question =  questions.get((Integer)request.getSession().getAttribute("pointer"));

@@ -56,8 +56,8 @@
 			<h1>${currentQuestion.subject.subjectName}</h1>
 		</div>
 		<div>
-			Time left =
-			<p id="timer"></p>
+<!-- 			Time left = -->
+<!-- 			<p id="timer"></p> -->
 		</div>
 
 		<div class="card">

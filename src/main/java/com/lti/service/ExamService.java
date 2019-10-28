@@ -23,6 +23,7 @@ public class ExamService {
 				exam.setSubject(subject);
 				exam.setUser(user);
 				exam.setCurrentLevel(1);
+				exam.setNoOfAttempts(0);
 				exam = (Exam) examDao.save(exam);
 			}
 		return exam;
