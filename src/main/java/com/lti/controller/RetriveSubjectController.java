@@ -30,7 +30,7 @@ public class RetriveSubjectController {
 		model.put("subjects", subjects);
 		
 		if(buttonvalue.equals("addquestion")){
-		return "ques_add.jsp";
+		return "UploadQuestions.jsp";
 		}
 		else if (buttonvalue.equals("viewreports")) {
 			return "fetchrecord.jsp";

@@ -22,7 +22,6 @@
         <div class="card">
         <div>
         <h1>Hello ${user.userName}! </h1>
-         <div style="float: left;"><a href="report.jsp"><button>Report</button></a></div>
         <div > <a href="select_subject.jsp"><button>New Exam</button></a></div>
     </div>
     </div>
