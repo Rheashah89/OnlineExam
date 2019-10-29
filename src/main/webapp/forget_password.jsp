@@ -8,11 +8,10 @@
     <title>password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css"/>
-    <script src="./assets/js/main.js"></script>
     
     <script type="text/javascript">
     function passwordValidate() {
-        var password = document.getElementById("password").value;
+        var password = document.getElementById("newpassword").value;
             var confirmPassword = document.getElementById("confirmpassword").value;
             if (password != confirmPassword) {
                 alert("Passwords do not match.");
@@ -32,11 +31,11 @@
         </div>
     <div class="form">
     	<p>${message}</p>
-        <form action="forgetPassword.lti" onsubmit="passwordValidate()" method="post">
+        <form action="forgetPassword.lti" method="post">
             New Password : <input type="password" name="newpassword"/><br>
             Confirm Password :<input type="password" name="confirmpassword"/><br>
             <br>
-            <button type="submit">Reset</button>
+            <button onclick="return passwordValidate();" type="submit">Reset</button>
         </form>
     </div>
 </body>

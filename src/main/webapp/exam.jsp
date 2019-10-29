@@ -11,7 +11,7 @@
 	href="./assets/css/main.css" />
 <script src='./assets/js/main.js'></script>
 
-<!--  <script type="text/javascript">
+ <script type="text/javascript">
 
     var timer = 60;
     var min = 0;
@@ -20,7 +20,7 @@
          min = parseInt(timer/60);
          sec = parseInt(timer%60);
 
-         if(timer < 1){
+         if(timer < 2){
             //  window.location = "";
              alert("Time up")
              return true;
@@ -39,9 +39,9 @@
         window.setTimeout(function() { document.exam.submit(); }, 5000);
 };
      }   
-    </script> -->
+    </script> 
     
-     <script type="text/javascript">
+   <!--  <script type="text/javascript">
 	function startTimer(duration, display) {
 		var timer = duration, minutes, seconds;
 		setInterval(function() {
@@ -63,19 +63,17 @@
 		var reMinutes = 60 * 2, display = document.querySelector('#time');
 		startTimer(reMinutes, display);
 	};
-</script>
+</script> --> 
 
      
 
 
 </head>
-<body style="background: #edd1ff;">
+<body style="background: #edd1ff;" onload="startTimer();">
 	<div class="exam">
 		<div>
-			<center>
-			<div>Time Left: <span id="time">2:00</span> minutes!</div>
-			</center>
-		</div>
+        	<center><b>[<span id = "time"></span></b>]</center>
+    	</div>
 		
 		<div>
 		<center>

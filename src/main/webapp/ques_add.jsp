@@ -42,6 +42,14 @@
     </script>
 </head>
 <body>
+
+	<div class="topnav">
+		<a class="active" href="admin.html">Home</a>
+		<a href="about_us.jsp" action = "about_us.jsp">About Us</a>
+        <a style="float:right" href="profile.jsp" action = "profile.jsp">Profile</a>
+        <a style="float:right" href="logout.lti">Logout</a></a>
+	</div>
+	
       <form action="" method="POST">
       <table>
       <tr>

@@ -27,13 +27,18 @@ public class LoginController {
 
 		User user = (User)request.getSession().getAttribute("user");
 		if(user==null){
+			try{
 			user = loginServiceInterface.fetchUserByEmail(email);
+			}catch (Exception e) {
+				model.put("message", "Please Register before login");
+				return "register.jsp";
+			}
 			String admin="A";
 
 			model.put("user", user);
 			if(email.equals(user.getUserEmail()) && password.equals(user.getUserPassword())){
 				if(admin.equals(user.getUserRole())){
-					return "admin.html";
+					return "admin.jsp";
 				}
 				else {
 					return "welcome.jsp";

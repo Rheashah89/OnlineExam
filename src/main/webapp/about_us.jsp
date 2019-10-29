@@ -15,8 +15,8 @@
         <div class="topnav">
                 <a class="active" href="index.html">Home</a>
                 <a href="about_us.jsp">About Us</a>
-                <a style="float:right" href="register.jsp">Register</a>
-                <a style="float:right" href="login.jsp">Login</a>
+                <a style="float:right" href="profile.jsp" action = "profile.jsp">Profile</a>
+     			<a style="float:right" href="logout.lti">Logout</a></a>
         </div>
     <h1>This system was created for online examination</h1>
 </body>
