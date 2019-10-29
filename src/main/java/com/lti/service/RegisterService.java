@@ -23,7 +23,5 @@ public class RegisterService implements RegisterServiceInterface{
 		return registerDao.fetch(email);
 	}
 	
-	public List<User> fetchAll(){
-		return registerDao.fecthAll();
-	}
+	
 }

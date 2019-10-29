@@ -60,7 +60,7 @@
 	}
 
 	window.onload = function() {
-		var reMinutes = 60 * 15, display = document.querySelector('#time');
+		var reMinutes = 60 * 2, display = document.querySelector('#time');
 		startTimer(reMinutes, display);
 	};
 </script>
@@ -73,8 +73,14 @@
 	<div class="exam">
 		<div>
 			<center>
-				<!--<b>[<span id="time"></span></b>] --><div>Time Left: <span id="time">15:00</span> minutes!</div>
+			<div>Time Left: <span id="time">2:00</span> minutes!</div>
 			</center>
+		</div>
+		
+		<div>
+		<center>
+		<div>Current Level: ${currentQuestion.questionLevel}</div>
+		</center>
 		</div>
 
 

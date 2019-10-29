@@ -109,10 +109,14 @@ public class ExamController {
 		
 		Question question =  questions.get((Integer)request.getSession().getAttribute("pointer"));
 		Set<Option> options = question.getOptions();
+		
+		//check score
 		int score = answerService.checkAnswer(options,option);
 
+		//get session of exam
 		Exam exam = (Exam) request.getSession().getAttribute("exam");
 		
+		//saves the answer for the particular question
 		Answer answer = answerService.getAnswer(exam,question,score,option);
 		
 		int key = (int) request.getSession().getAttribute("pointer")+cursor;

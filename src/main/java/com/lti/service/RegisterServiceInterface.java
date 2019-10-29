@@ -9,5 +9,5 @@ public interface RegisterServiceInterface {
 	
 	public User fetchByEmail(String email);
 	
-	public List<User> fetchAll();
+
 }

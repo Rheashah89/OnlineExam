@@ -75,7 +75,7 @@ public class AddQuestionsController {
 					addQuestionsService.addQuestion(question);
 			}
 		}
-		return "welcome.jsp";	
+		return "admin.html";	
 	}
 
 	public String AddQuestionWithForm(AddQuestionFormDto addQuestionFormDto,Map model) {

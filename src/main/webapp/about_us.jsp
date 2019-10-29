@@ -10,7 +10,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
     <script src="./assets/js/main.js"></script>
 </head>
-<body>
+<body style=" background:#edd1ff;">
+<div>
+        <div class="topnav">
+                <a class="active" href="index.html">Home</a>
+                <a href="about_us.jsp">About Us</a>
+                <a style="float:right" href="register.jsp">Register</a>
+                <a style="float:right" href="login.jsp">Login</a>
+        </div>
     <h1>This system was created for online examination</h1>
 </body>
 </html>
