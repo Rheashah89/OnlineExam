@@ -44,8 +44,10 @@ public class LoginController {
 					return "welcome.jsp";
 				}
 
-			}
+			}else{
+				model.put("message","Try Again!");
 			return "login.jsp";	
+			}
 		}
 		else
 		{
@@ -74,13 +76,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(path="/forgetPassword.lti",method=RequestMethod.POST)
-	public String changePassword(@RequestParam("newpassword") String password,HttpServletRequest request,Map model){
+	public String changePassword(@RequestParam("newpassword") String password,@RequestParam("confirmpassword") String cpassword,HttpServletRequest request,Map model){
 		User user = (User)request.getSession().getAttribute("user");
+		if(password.equals(cpassword)){
 		user.setUserPassword(password);
 		user = loginServiceInterface.updateUser(user);
 		model.put("message", "Password Changed Successfully! Please login with new password");
 		return "login.jsp";
 	}
+		else{
+			model.put("message", "Passwords did not match");
+			return "forget_password.jsp";
+			}
+		}
 
 	@RequestMapping(path="/logout.lti")
 	public String logout(HttpServletRequest request, Map model){
