@@ -12,7 +12,10 @@
 </head>
 <body>
 
-
+<div class="topnav">
+		<a class="active" href="admin.jsp">Home</a> <a href="about_us.jsp">About
+			Us</a> <a style="float: right" href="login.jsp">Logout</a>
+	</div>
 <form method="POST" action="addQuestion.lti" enctype="multipart/form-data">
 
 <h3>Upload File</h3>

@@ -11,6 +11,10 @@
 <script src="./assets/js/main.js"></script>
 </head>
 <body>
+<div class="topnav">
+		<a class="active" href="admin.jsp">Home</a> <a href="about_us.jsp">About
+			Us</a> <a style="float: right" href="login.jsp">Logout</a>
+	</div>
 	<h3>Add Question</h3>
 
 	<form action="" method="POST">

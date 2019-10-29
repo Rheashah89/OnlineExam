@@ -12,6 +12,10 @@
 <title>User Record</title>
 </head>
 <body>
+<div class="topnav">
+		<a class="active" href="admin.jsp">Home</a> <a href="about_us.jsp">About
+			Us</a> <a style="float: right" href="login.jsp">Logout</a>
+	</div>
 	<table border="1">
 		<thead>
 			<tr>                                                                                                                                

@@ -5,8 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css" />
 </head>
 <body>
+<div class="topnav">
+		<a class="active" href="admin.jsp">Home</a> <a href="about_us.jsp">About
+			Us</a> <a style="float: right" href="login.jsp">Logout</a>
+	</div>
 <table border="1">
 		<thead>
 			<tr>

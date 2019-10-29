@@ -39,7 +39,7 @@ public class RetriveSubjectController {
 			return "viewQuestion.jsp";
 		}
 		
-		return "admin.html";
+		return "admin.jsp";
 	}
 	 
 }

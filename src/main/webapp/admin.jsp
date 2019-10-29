@@ -39,7 +39,7 @@ cursor: pointer;
 <body>
 
 	<div class="topnav">
-		<a class="active" href="admin.html">Home</a> <a href="about_us.jsp">About
+		<a class="active" href="admin.jsp">Home</a> <a href="about_us.jsp">About
 			Us</a> <a style="float: right" href="login.jsp">Logout</a>
 	</div>
 
