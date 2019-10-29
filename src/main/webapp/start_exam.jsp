@@ -31,7 +31,7 @@
         </ul>
         <div>
         <div>
-        <button><a href="select_subject.jsp"></a>Change Subject</button>
+        <button><a href="select_subject.jsp" style="color:white; text-decoration: none;">Change Subject</a></button>
         </div>
         <form action="startExam.lti">
         <button type="submit">Start Exam</button></div>

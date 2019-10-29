@@ -23,10 +23,15 @@ public class RegisterController {
 
 	@RequestMapping(path="/register.lti",method=RequestMethod.POST)
 	public String register(User user, Map model){	
-		System.out.println(user.getUserName());
+		//System.out.println(user.getUserName());
+		try{
 		registerServiceInterface.register(user);
 		model.put("message", "Registered Successfully!");
-		
+		}
+		catch (Exception e) {
+			model.put("message", "Sorry, We could not register you. Try Again!");
+			return "register.jsp";
+		}
 		return "login.jsp";
 	}
 	

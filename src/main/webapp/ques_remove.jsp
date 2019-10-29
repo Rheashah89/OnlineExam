@@ -25,10 +25,7 @@
 			<c:forEach var="question" items="${questions}">
 			<tr>
 				<td>${question.question}</td>
-				<form action="deleteQuestion.lti" method="post">
-				<td><input type="hidden" name="questionId" value="${question.questionId}"></td>
-				<td><input type="submit" value="Delete"></td>
-				</form>
+				
 			</tr>
 			</c:forEach>
 		</tbody>
