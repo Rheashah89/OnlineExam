@@ -17,7 +17,7 @@
 		<hibernate.version>5.2.16.Final</hibernate.version>
 		<oracle.version>12.2.0.1</oracle.version>
 		<junit.version>4.10</junit.version>
-		<poi.version>3.9</poi.version>
+		<poi.version>4.1.1</poi.version>
 		<poi-ooxml.version>3.17</poi-ooxml.version>
 	</properties>
 
